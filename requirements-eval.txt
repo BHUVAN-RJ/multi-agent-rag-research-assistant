@@ -1,0 +1,33 @@
+# Evaluation venv (.venv-eval) only: RAGAS conflicts with the app venv (langchain-community 0.3.x
+# vs the app's 0.4.x line), so never install this into .venv.
+#   uv venv .venv-eval --python 3.13 && VIRTUAL_ENV=.venv-eval uv pip install -r requirements-eval.txt
+# Versions from `VIRTUAL_ENV=.venv-eval uv pip freeze` on 2026-10-25.
+-r requirements.txt
+
+# Imported directly by src/eval/ragas_eval.py
+ragas==0.4.3
+langchain-google-genai==4.4.2   # Gemini judge
+langchain-openai==1.7.2         # NVIDIA NIM judge (OpenAI-compatible base_url)
+
+# ragas pulls these in; pinned because langchain-community must stay on 0.3.x for ragas 0.4.3
+langchain==1.4.7
+langchain-community==0.3.31
+dataclasses-json==0.6.7
+marshmallow==3.26.2
+mypy-extensions==1.1.0
+typing-inspect==0.9.0
+
+# Other ragas dependencies at the versions verified in .venv-eval
+datasets==5.1.0
+instructor==1.17.0
+openai==3.3.0
+tiktoken==0.14.0
+numpy==2.5.4
+pandas==3.1.0
+diskcache==5.6.3
+nest-asyncio==1.6.0
+appdirs==1.4.4
+networkx==3.7
+scikit-network==0.33.5
+pillow==13.0.0
+tenacity==9.1.4

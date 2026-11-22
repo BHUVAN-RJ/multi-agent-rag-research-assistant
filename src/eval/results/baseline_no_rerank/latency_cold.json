@@ -1,0 +1,59 @@
+{
+  "url": "https://multi-agent-rag-244022616144.us-west1.run.app",
+  "run_at": "2026-10-26T22:36:20+00:00",
+  "mode": "cold",
+  "records": [
+    {
+      "query_type": "rag",
+      "query": "How does ReAct combine reasoning and acting in language models, and what does the interleaving buy on HotpotQA and Fever?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 16787.534083938226,
+      "client_total_ms": 17440.42666698806,
+      "server_ttft_ms": 1901.6858250000014,
+      "server_total_ms": 2556.2035610000003,
+      "retrieval_ms": 409.7,
+      "retrieval_calls": 1,
+      "llm_ms": 1151.8083720000013,
+      "llm_ttft_ms": 504.8640070000019,
+      "other_ms": 994.6951889999991,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 1151.8083720000013,
+          "ttft_ms": 504.8640070000019
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "dimension": "hybrid"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 1756,
+      "output_tokens": 255,
+      "answer_chars": 1023,
+      "errors": []
+    }
+  ]
+}

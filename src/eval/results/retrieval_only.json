@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-10-26T00:37:48+00:00",
+  "k": 5,
+  "n_questions": 15,
+  "hit_rate": 1.0,
+  "mrr": 0.9666666666666667,
+  "median_latency_ms": 49.9,
+  "per_question": [
+    {
+      "id": "q01_react",
+      "retrieved_source_ids": [
+        "2210.03629",
+        "2210.03629",
+        "2308.03688",
+        "2308.08155",
+        "2308.03688"
+      ],
+      "latency_ms": 1037.0,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q02_reflexion",
+      "retrieved_source_ids": [
+        "2303.11366",
+        "2303.11366",
+        "2308.11432",
+        "2308.11432",
+        "2304.03442"
+      ],
+      "latency_ms": 61.6,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q03_toolformer",
+      "retrieved_source_ids": [
+        "2302.04761",
+        "2302.04761",
+        "2308.11432",
+        "2307.16789",
+        "2305.15334"
+      ],
+      "latency_ms": 51.9,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q04_autogen",
+      "retrieved_source_ids": [
+        "2308.08155",
+        "2308.08155",
+        "2402.01680",
+        "2309.07864",
+        "2304.03442"
+      ],
+      "latency_ms": 47.9,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q05_metagpt",
+      "retrieved_source_ids": [
+        "2308.00352",
+        "2308.00352",
+        "2307.07924",
+        "2308.08155",
+        "2402.01680"
+      ],
+      "latency_ms": 53.1,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q06_rag_lewis",
+      "retrieved_source_ids": [
+        "2005.11401",
+        "2404.16130",
+        "2005.11401",
+        "2401.15884",
+        "2310.11511"
+      ],
+      "latency_ms": 51.4,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q07_selfrag",
+      "retrieved_source_ids": [
+        "2310.11511",
+        "2310.11511",
+        "2312.10997",
+        "2312.10997",
+        "2404.16130"
+      ],
+      "latency_ms": 47.2,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q08_raptor",
+      "retrieved_source_ids": [
+        "2401.18059",
+        "2401.18059",
+        "2312.10997",
+        "2312.10997",
+        "2404.16130"
+      ],
+      "latency_ms": 51.0,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q09_hyde",
+      "retrieved_source_ids": [
+        "2212.10496",
+        "2212.10496",
+        "2312.10997",
+        "2004.04906",
+        "2004.12832"
+      ],
+      "latency_ms": 49.7,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q10_crag",
+      "retrieved_source_ids": [
+        "2401.15884",
+        "2309.15217",
+        "2310.11511",
+        "2401.15884",
+        "2312.10997"
+      ],
+      "latency_ms": 49.5,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q11_graphrag",
+      "retrieved_source_ids": [
+        "2404.16130",
+        "2404.16130",
+        "2312.10997",
+        "2312.10997",
+        "2309.15217"
+      ],
+      "latency_ms": 50.5,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q12_lost_middle",
+      "retrieved_source_ids": [
+        "2307.03172",
+        "2309.15217",
+        "2307.03172",
+        "2304.08354",
+        "2309.15217"
+      ],
+      "latency_ms": 49.2,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q13_dpr",
+      "retrieved_source_ids": [
+        "2004.04906",
+        "2004.04906",
+        "2401.18059",
+        "2212.10509",
+        "2208.03299"
+      ],
+      "latency_ms": 48.7,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    },
+    {
+      "id": "q14_tot",
+      "retrieved_source_ids": [
+        "2308.11432",
+        "2305.10601",
+        "2305.10601",
+        "2201.11903",
+        "2201.11903"
+      ],
+      "latency_ms": 49.9,
+      "hit": true,
+      "first_rank": 2,
+      "reciprocal_rank": 0.5
+    },
+    {
+      "id": "q15_ragas",
+      "retrieved_source_ids": [
+        "2309.15217",
+        "2312.10997",
+        "2401.15884",
+        "2312.10997",
+        "2309.15217"
+      ],
+      "latency_ms": 45.4,
+      "hit": true,
+      "first_rank": 1,
+      "reciprocal_rank": 1.0
+    }
+  ]
+}

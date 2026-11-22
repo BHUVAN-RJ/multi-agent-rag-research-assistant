@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "description": "Fixed RAGAS test set: 15 questions answerable from the arXiv corpus. Each reference is paraphrased from the cited paper's own text (pypdf extraction of data/corpus/<id>.pdf), not written from memory.",
+  "questions": [
+    {
+      "id": "q01_react",
+      "topic": "ReAct",
+      "question": "How does ReAct combine reasoning and acting in language models, and what does the interleaving buy on HotpotQA and Fever?",
+      "reference": "ReAct prompts an LLM to generate reasoning traces and task-specific actions in an interleaved manner: reasoning helps the model induce, track and update action plans and handle exceptions, while actions let it gather information from external sources such as a Wikipedia API. On HotpotQA and Fever this interaction overcomes hallucination and error propagation seen in chain-of-thought reasoning and yields more interpretable, human-like trajectories.",
+      "source_ids": ["2210.03629"]
+    },
+    {
+      "id": "q02_reflexion",
+      "topic": "Reflexion",
+      "question": "What are the three models in the Reflexion framework and how does Reflexion improve an agent without updating its weights?",
+      "reference": "Reflexion uses an Actor that generates text and actions, an Evaluator that scores the Actor's outputs, and a Self-Reflection model that generates verbal reinforcement cues. Instead of updating weights, the agent verbally reflects on task feedback and keeps that reflective text in an episodic memory buffer to make better decisions in later trials, reaching 91% pass@1 on HumanEval versus 80% for GPT-4.",
+      "source_ids": ["2303.11366"]
+    },
+    {
+      "id": "q03_toolformer",
+      "topic": "Toolformer",
+      "question": "How does Toolformer decide which sampled API calls to keep when building its self-supervised training data?",
+      "reference": "Toolformer samples candidate API calls, executes them, and keeps only the calls for which adding the call and its result reduces the language-modeling loss on the following tokens by at least a filtering threshold, compared with making no call or receiving no result. The kept calls are interleaved with the original text and the model is fine-tuned on it, requiring only a handful of demonstrations per API (calculator, Q&A system, search engine, translation system, calendar).",
+      "source_ids": ["2302.04761"]
+    },
+    {
+      "id": "q04_autogen",
+      "topic": "AutoGen",
+      "question": "What are the built-in agent types in AutoGen and what role does each play in a multi-agent conversation?",
+      "reference": "AutoGen's highest-level abstraction is the ConversableAgent, which can use LLMs, humans and tools. AssistantAgent and UserProxyAgent are two pre-configured subclasses: the assistant acts as an LLM-backed AI assistant, while the user proxy solicits human input or executes code and function calls; a GroupChatManager coordinates group chats.",
+      "source_ids": ["2308.08155"]
+    },
+    {
+      "id": "q05_metagpt",
+      "topic": "MetaGPT",
+      "question": "How does MetaGPT use Standardized Operating Procedures and roles to reduce errors in multi-agent software development?",
+      "reference": "MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences so agents with human-like domain expertise can verify intermediate results, which counters the cascading hallucinations of naively chained LLMs. It uses an assembly-line paradigm with five roles in a simulated software company: Product Manager, Architect, Project Manager, Engineer and QA Engineer, who exchange structured outputs such as requirement documents and design artifacts.",
+      "source_ids": ["2308.00352"]
+    },
+    {
+      "id": "q06_rag_lewis",
+      "topic": "RAG (Lewis et al.)",
+      "question": "In the original retrieval-augmented generation paper by Lewis et al., what are the parametric and non-parametric memories, and how do RAG-Sequence and RAG-Token differ?",
+      "reference": "The parametric memory is a pre-trained seq2seq model (BART) and the non-parametric memory is a dense vector index of Wikipedia accessed with a pre-trained neural retriever (DPR). RAG-Sequence uses the same retrieved document to generate the whole output sequence, while RAG-Token can draw a different retrieved document for each target token.",
+      "source_ids": ["2005.11401"]
+    },
+    {
+      "id": "q07_selfrag",
+      "topic": "Self-RAG",
+      "question": "What are the reflection tokens in Self-RAG and what does each one evaluate?",
+      "reference": "Self-RAG trains a single LM to retrieve on demand and to emit reflection tokens: Retrieve decides whether to retrieve, ISREL judges whether a passage is relevant to the input, ISSUP judges whether the generation is fully, partially or not supported by the passage, and ISUSE rates the usefulness of the response on a 1 to 5 scale.",
+      "source_ids": ["2310.11511"]
+    },
+    {
+      "id": "q08_raptor",
+      "topic": "RAPTOR",
+      "question": "How does RAPTOR build its retrieval tree and what querying strategies does it use?",
+      "reference": "RAPTOR recursively embeds, clusters (with Gaussian Mixture Models) and summarizes text chunks with a language model, building a tree with different levels of summarization from the bottom up. At query time it uses either tree traversal, which selects the most relevant nodes layer by layer, or a collapsed tree, which evaluates nodes across all layers together.",
+      "source_ids": ["2401.18059"]
+    },
+    {
+      "id": "q09_hyde",
+      "topic": "HyDE",
+      "question": "How do Hypothetical Document Embeddings (HyDE) enable zero-shot dense retrieval without relevance labels?",
+      "reference": "HyDE first instructs an instruction-following language model such as InstructGPT to generate a hypothetical document for the query, which captures relevance patterns but may contain false details. An unsupervised contrastive encoder such as Contriever then embeds that document, and real corpus documents near that embedding are retrieved, with the encoder's dense bottleneck filtering out the incorrect details.",
+      "source_ids": ["2212.10496"]
+    },
+    {
+      "id": "q10_crag",
+      "topic": "CRAG",
+      "question": "In Corrective Retrieval Augmented Generation (CRAG), what does the retrieval evaluator do and which actions can it trigger?",
+      "reference": "CRAG uses a lightweight retrieval evaluator to assess the quality of the retrieved documents for a query and return a confidence degree that triggers one of three actions: Correct, Incorrect or Ambiguous. Correct refines the documents into knowledge strips via decompose-then-recompose, Incorrect discards them and falls back to large-scale web search, and Ambiguous combines both sources.",
+      "source_ids": ["2401.15884"]
+    },
+    {
+      "id": "q11_graphrag",
+      "topic": "GraphRAG",
+      "question": "Why does conventional RAG fail on global sensemaking questions, and how does GraphRAG answer them?",
+      "reference": "Global questions such as 'What are the main themes in the dataset?' are query-focused summarization tasks over a whole corpus rather than explicit retrieval tasks, so conventional RAG fails on them. GraphRAG uses an LLM to build an entity knowledge graph from the source documents and pre-generate community summaries for groups of related entities; each community summary produces a partial answer and the partial answers are summarized into the final response.",
+      "source_ids": ["2404.16130"]
+    },
+    {
+      "id": "q12_lost_middle",
+      "topic": "Lost in the Middle",
+      "question": "What did the Lost in the Middle study find about where relevant information is placed in a long input context?",
+      "reference": "On multi-document question answering and key-value retrieval, performance is often highest when the relevant information appears at the beginning or end of the input context and degrades significantly when it is in the middle, even for explicitly long-context models. This shows current language models do not robustly use information in long input contexts.",
+      "source_ids": ["2307.03172"]
+    },
+    {
+      "id": "q13_dpr",
+      "topic": "DPR",
+      "question": "How is Dense Passage Retrieval trained, and how does it compare with BM25 for open-domain QA?",
+      "reference": "DPR uses a dual-encoder of two independent BERT-base encoders for questions and passages, using the [CLS] representation, and is trained on question-passage pairs with in-batch negatives, where the other passages in a batch serve as negatives. It outperforms a strong Lucene-BM25 system by 9%-19% absolute in top-20 passage retrieval accuracy.",
+      "source_ids": ["2004.04906"]
+    },
+    {
+      "id": "q14_tot",
+      "topic": "Tree of Thoughts",
+      "question": "How does Tree of Thoughts generalize chain-of-thought prompting, and how did it perform on the Game of 24?",
+      "reference": "Tree of Thoughts lets a language model explore coherent units of text ('thoughts') as intermediate steps, considering multiple reasoning paths, self-evaluating choices and looking ahead or backtracking with search algorithms such as breadth-first or depth-first search. On Game of 24, GPT-4 with chain-of-thought prompting solved 4% of tasks while ToT achieved a 74% success rate.",
+      "source_ids": ["2305.10601"]
+    },
+    {
+      "id": "q15_ragas",
+      "topic": "RAGAS",
+      "question": "What quality aspects does the Ragas framework measure for retrieval-augmented generation, and how is faithfulness estimated?",
+      "reference": "Ragas is a reference-free framework that measures faithfulness, answer relevance and context relevance of RAG pipelines. Faithfulness is estimated by using an LLM to extract statements from the answer and then checking which of them can be inferred from the retrieved context; the score is the fraction of supported statements.",
+      "source_ids": ["2309.15217"]
+    }
+  ]
+}

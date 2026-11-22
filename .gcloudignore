@@ -1,0 +1,22 @@
+# Upload filter for `gcloud builds submit`. When this file exists gcloud ignores
+# .gitignore, which matters: .gitignore excludes chroma_index/ and data/papers.db, and
+# the Cloud Build context must include both (they are baked into the image).
+# Do NOT add `#!include:.gitignore` here.
+.env
+.env.*
+!.env.example
+.git/
+.gitignore
+.venv/
+.venv-eval/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+tests/
+*.pdf
+data/corpus/
+docs/

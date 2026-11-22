@@ -1,0 +1,731 @@
+{
+  "url": "https://multi-agent-rag-244022616144.us-west1.run.app",
+  "run_at": "2026-10-26T22:14:41+00:00",
+  "mode": "warm",
+  "repeat": 1,
+  "summary": {
+    "n_records": 9,
+    "n_ok": 9,
+    "n_failed": 0,
+    "groups": {
+      "all": {
+        "client_ttft_ms": {
+          "n": 9,
+          "median": 2352.8931660111994,
+          "p90": 7679.993991693486,
+          "min": 1577.9064591042697,
+          "max": 26124.167958972976
+        },
+        "client_total_ms": {
+          "n": 9,
+          "median": 3312.426542164758,
+          "p90": 15829.499858478088,
+          "min": 2256.5489581320435,
+          "max": 30966.268291929737
+        },
+        "retrieval_ms": {
+          "n": 7,
+          "median": 446.8,
+          "p90": 906.0600000000001,
+          "min": 405.9,
+          "max": 970.5
+        },
+        "llm_ms": {
+          "n": 9,
+          "median": 2124.5789749999913,
+          "p90": 13560.168471800001,
+          "min": 814.3489170000038,
+          "max": 27377.490307000004
+        },
+        "llm_ttft_ms": {
+          "n": 9,
+          "median": 615.3444770000078,
+          "p90": 729.075697799999,
+          "min": 246.68607600000314,
+          "max": 816.8994330000032
+        },
+        "other_ms": {
+          "n": 9,
+          "median": 714.9541909999853,
+          "p90": 1565.3088126000064,
+          "min": 524.3578430000057,
+          "max": 3028.452935000001
+        }
+      },
+      "data": {
+        "client_ttft_ms": {
+          "n": 2,
+          "median": 1965.3998125577345,
+          "p90": 2275.3944953205064,
+          "min": 1577.9064591042697,
+          "max": 2352.8931660111994
+        },
+        "client_total_ms": {
+          "n": 2,
+          "median": 5199.332166579552,
+          "p90": 6708.856666111387,
+          "min": 3312.426542164758,
+          "max": 7086.237790994346
+        },
+        "retrieval_ms": {
+          "n": 0,
+          "median": null,
+          "p90": null,
+          "min": null,
+          "max": null
+        },
+        "llm_ms": {
+          "n": 2,
+          "median": 4317.071430999995,
+          "p90": 5677.246185399988,
+          "min": 2616.852988000005,
+          "max": 6017.2898739999855
+        },
+        "llm_ttft_ms": {
+          "n": 2,
+          "median": 433.9358325000049,
+          "p90": 583.7356377000062,
+          "min": 246.68607600000314,
+          "max": 621.1855890000066
+        },
+        "other_ms": {
+          "n": 2,
+          "median": 705.6815060000115,
+          "p90": 827.6711084000206,
+          "min": 553.1945030000002,
+          "max": 858.1685090000228
+        }
+      },
+      "rag": {
+        "client_ttft_ms": {
+          "n": 3,
+          "median": 1978.9259999524802,
+          "p90": 1980.1401000004262,
+          "min": 1965.6055830419064,
+          "max": 1980.4436250124127
+        },
+        "client_total_ms": {
+          "n": 3,
+          "median": 2456.659457879141,
+          "p90": 2586.8453586939722,
+          "min": 2256.5489581320435,
+          "max": 2619.39183389768
+        },
+        "retrieval_ms": {
+          "n": 3,
+          "median": 417.9,
+          "p90": 441.02,
+          "min": 405.9,
+          "max": 446.8
+        },
+        "llm_ms": {
+          "n": 3,
+          "median": 1147.3476999999975,
+          "p90": 1303.879926400006,
+          "min": 814.3489170000038,
+          "max": 1343.0129830000083
+        },
+        "llm_ttft_ms": {
+          "n": 3,
+          "median": 661.7772820000027,
+          "p90": 698.0512675999989,
+          "min": 446.27307799999727,
+          "max": 707.119763999998
+        },
+        "other_ms": {
+          "n": 3,
+          "median": 714.9541909999853,
+          "p90": 855.1609445999974,
+          "min": 683.405125000003,
+          "max": 890.2126330000004
+        }
+      },
+      "summary": {
+        "client_ttft_ms": {
+          "n": 2,
+          "median": 2814.8471454624087,
+          "p90": 3018.1298289913684,
+          "min": 2560.743791051209,
+          "max": 3068.9504998736084
+        },
+        "client_total_ms": {
+          "n": 2,
+          "median": 3578.633540892042,
+          "p90": 3824.772840854712,
+          "min": 3270.959415938705,
+          "max": 3886.3076658453792
+        },
+        "retrieval_ms": {
+          "n": 2,
+          "median": 916.8,
+          "p90": 959.76,
+          "min": 863.1,
+          "max": 970.5
+        },
+        "llm_ms": {
+          "n": 2,
+          "median": 1827.9035749999935,
+          "p90": 2065.2438949999914,
+          "min": 1531.2281749999954,
+          "max": 2124.5789749999913
+        },
+        "llm_ttft_ms": {
+          "n": 2,
+          "median": 579.0074885000109,
+          "p90": 608.0770793000084,
+          "min": 542.670500000014,
+          "max": 615.3444770000078
+        },
+        "other_ms": {
+          "n": 2,
+          "median": 606.5522800000118,
+          "p90": 672.3078296000167,
+          "min": 524.3578430000057,
+          "max": 688.746717000018
+        }
+      },
+      "web": {
+        "client_ttft_ms": {
+          "n": 2,
+          "median": 14434.7391044721,
+          "p90": 23786.2821880728,
+          "min": 2745.310249971226,
+          "max": 26124.167958972976
+        },
+        "client_total_ms": {
+          "n": 2,
+          "median": 21505.788021022454,
+          "p90": 29074.17223774828,
+          "min": 12045.307750115171,
+          "max": 30966.268291929737
+        },
+        "retrieval_ms": {
+          "n": 2,
+          "median": 459.6,
+          "p90": 484.88,
+          "min": 428.0,
+          "max": 491.2
+        },
+        "llm_ms": {
+          "n": 2,
+          "median": 18741.66416,
+          "p90": 25650.325077600006,
+          "min": 10105.838012999997,
+          "max": 27377.490307000004
+        },
+        "llm_ttft_ms": {
+          "n": 2,
+          "median": 695.2103565000059,
+          "p90": 792.5616177000038,
+          "min": 573.5212800000085,
+          "max": 816.8994330000032
+        },
+        "other_ms": {
+          "n": 2,
+          "median": 2113.987858500004,
+          "p90": 2845.559919700002,
+          "min": 1199.5227820000073,
+          "max": 3028.452935000001
+        }
+      }
+    },
+    "answering_provider_models": {
+      "gemini/gemini-3.5-flash-lite": 5,
+      "nvidia/nvidia/nemotron-3-ultra-550b-a55b": 3,
+      "nvidia/nvidia/nemotron-3.5-lightning-30b-a3b": 1
+    }
+  },
+  "records": [
+    {
+      "query_type": "rag",
+      "query": "How does ReAct combine reasoning and acting in language models, and what does the interleaving buy on HotpotQA and Fever?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 1965.6055830419064,
+      "client_total_ms": 2456.659457879141,
+      "server_ttft_ms": 1759.0961320000033,
+      "server_total_ms": 2248.6528250000006,
+      "retrieval_ms": 417.9,
+      "retrieval_calls": 1,
+      "llm_ms": 1147.3476999999975,
+      "llm_ttft_ms": 661.7772820000027,
+      "other_ms": 683.405125000003,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 1147.3476999999975,
+          "ttft_ms": 661.7772820000027
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "dimension": "hybrid"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 1756,
+      "output_tokens": 216,
+      "answer_chars": 757,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "rag",
+      "query": "What are the reflection tokens in Self-RAG and what does each one evaluate?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 1978.9259999524802,
+      "client_total_ms": 2256.5489581320435,
+      "server_ttft_ms": 1779.5407800000048,
+      "server_total_ms": 2151.361550000004,
+      "retrieval_ms": 446.8,
+      "retrieval_calls": 1,
+      "llm_ms": 814.3489170000038,
+      "llm_ttft_ms": 446.27307799999727,
+      "other_ms": 890.2126330000004,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 814.3489170000038,
+          "ttft_ms": 446.27307799999727
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "dimension": "hybrid"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 1443,
+      "output_tokens": 208,
+      "answer_chars": 801,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "rag",
+      "query": "How do Hypothetical Document Embeddings (HyDE) enable zero-shot dense retrieval without relevance labels?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 1980.4436250124127,
+      "client_total_ms": 2619.39183389768,
+      "server_ttft_ms": 1823.1739639999987,
+      "server_total_ms": 2463.8671739999936,
+      "retrieval_ms": 405.9,
+      "retrieval_calls": 1,
+      "llm_ms": 1343.0129830000083,
+      "llm_ttft_ms": 707.119763999998,
+      "other_ms": 714.9541909999853,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 1343.0129830000083,
+          "ttft_ms": 707.119763999998
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "dimension": "hybrid"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 1755,
+      "output_tokens": 305,
+      "answer_chars": 1287,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "web",
+      "query": "What are the latest news about LLM agent frameworks this week?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 26124.167958972976,
+      "client_total_ms": 30966.268291929737,
+      "server_ttft_ms": 25993.235063,
+      "server_total_ms": 30833.943242000005,
+      "retrieval_ms": 428.0,
+      "retrieval_calls": 1,
+      "llm_ms": 27377.490307000004,
+      "llm_ttft_ms": 573.5212800000085,
+      "other_ms": 3028.452935000001,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "llm_latency_ms": 27377.490307000004,
+          "ttft_ms": 573.5212800000085
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.8-flash",
+          "dimension": "capability"
+        }
+      ],
+      "fallbacks": 1,
+      "input_tokens": 2945,
+      "output_tokens": 579,
+      "answer_chars": 2057,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "web",
+      "query": "What recent open-source RAG framework releases happened in 2026?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 2745.310249971226,
+      "client_total_ms": 12045.307750115171,
+      "server_ttft_ms": 2502.8625350000057,
+      "server_total_ms": 11796.560795000005,
+      "retrieval_ms": 491.2,
+      "retrieval_calls": 1,
+      "llm_ms": 10105.838012999997,
+      "llm_ttft_ms": 816.8994330000032,
+      "other_ms": 1199.5227820000073,
+      "final_agent": "research",
+      "plan": [
+        "research"
+      ],
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "agent_results": [
+        {
+          "agent": "research",
+          "ok": true,
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "llm_latency_ms": 10105.838012999997,
+          "ttft_ms": 816.8994330000032
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "research",
+          "role": "research",
+          "provider": "gemini",
+          "model": "gemini-3.8-flash",
+          "dimension": "capability"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 2667,
+      "output_tokens": 592,
+      "answer_chars": 1620,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "data",
+      "query": "How many papers in the database were published per year?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 1577.9064591042697,
+      "client_total_ms": 3312.426542164758,
+      "server_ttft_ms": 1436.0518969999987,
+      "server_total_ms": 3170.0474910000053,
+      "retrieval_ms": null,
+      "retrieval_calls": 0,
+      "llm_ms": 2616.852988000005,
+      "llm_ttft_ms": 246.68607600000314,
+      "other_ms": 553.1945030000002,
+      "final_agent": "data",
+      "plan": [
+        "data"
+      ],
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "agent_results": [
+        {
+          "agent": "data",
+          "ok": true,
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "llm_latency_ms": 2616.852988000005,
+          "ttft_ms": 246.68607600000314
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "data",
+          "role": "data",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "data",
+          "role": "data",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 1409,
+      "output_tokens": 189,
+      "answer_chars": 384,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "data",
+      "query": "Which authors have the most papers in the database?",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 2352.8931660111994,
+      "client_total_ms": 7086.237790994346,
+      "server_ttft_ms": 2192.5309360000115,
+      "server_total_ms": 6875.458383000008,
+      "retrieval_ms": null,
+      "retrieval_calls": 0,
+      "llm_ms": 6017.2898739999855,
+      "llm_ttft_ms": 621.1855890000066,
+      "other_ms": 858.1685090000228,
+      "final_agent": "data",
+      "plan": [
+        "data"
+      ],
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "agent_results": [
+        {
+          "agent": "data",
+          "ok": true,
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "llm_latency_ms": 6017.2898739999855,
+          "ttft_ms": 621.1855890000066
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "data",
+          "role": "data",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "data",
+          "role": "data",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3-ultra-550b-a55b",
+          "dimension": "capability"
+        }
+      ],
+      "fallbacks": 0,
+      "input_tokens": 2297,
+      "output_tokens": 627,
+      "answer_chars": 1403,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "summary",
+      "query": "Summarize the Reflexion paper.",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 3068.9504998736084,
+      "client_total_ms": 3886.3076658453792,
+      "server_ttft_ms": 2787.893107000002,
+      "server_total_ms": 3619.436817999997,
+      "retrieval_ms": 970.5,
+      "retrieval_calls": 2,
+      "llm_ms": 2124.5789749999913,
+      "llm_ttft_ms": 542.670500000014,
+      "other_ms": 524.3578430000057,
+      "final_agent": "summary",
+      "plan": [
+        "summary"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "summary",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 2124.5789749999913,
+          "ttft_ms": 542.670500000014
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "summary",
+          "role": "summary",
+          "provider": "openrouter",
+          "model": "openrouter/free",
+          "dimension": "cost"
+        }
+      ],
+      "fallbacks": 3,
+      "input_tokens": 2350,
+      "output_tokens": 350,
+      "answer_chars": 1434,
+      "errors": [],
+      "pass": 1
+    },
+    {
+      "query_type": "summary",
+      "query": "Summarize the key ideas of RAPTOR.",
+      "http_status": 200,
+      "ok": true,
+      "client_ttft_ms": 2560.743791051209,
+      "client_total_ms": 3270.959415938705,
+      "server_ttft_ms": 2327.082983999986,
+      "server_total_ms": 3083.0748920000133,
+      "retrieval_ms": 863.1,
+      "retrieval_calls": 2,
+      "llm_ms": 1531.2281749999954,
+      "llm_ttft_ms": 615.3444770000078,
+      "other_ms": 688.746717000018,
+      "final_agent": "summary",
+      "plan": [
+        "summary"
+      ],
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "agent_results": [
+        {
+          "agent": "summary",
+          "ok": true,
+          "provider": "gemini",
+          "model": "gemini-3.5-flash-lite",
+          "llm_latency_ms": 1531.2281749999954,
+          "ttft_ms": 615.3444770000078
+        }
+      ],
+      "routes": [
+        {
+          "node": "supervisor",
+          "role": "supervisor",
+          "provider": "nvidia",
+          "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "dimension": "cost"
+        },
+        {
+          "node": "summary",
+          "role": "summary",
+          "provider": "openrouter",
+          "model": "openrouter/free",
+          "dimension": "cost"
+        }
+      ],
+      "fallbacks": 2,
+      "input_tokens": 2231,
+      "output_tokens": 362,
+      "answer_chars": 1390,
+      "errors": [],
+      "pass": 1
+    }
+  ]
+}

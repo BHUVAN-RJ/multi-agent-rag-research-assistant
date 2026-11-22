@@ -1,0 +1,212 @@
+{
+  "q01_react": {
+    "id": "q01_react",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:26:39+00:00",
+    "scored_at": "2026-10-26T22:30:02+00:00",
+    "judge_seconds": 98.8,
+    "scores": {
+      "faithfulness": 0.5882352941176471,
+      "answer_relevancy": 0.8546693468068657,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "q02_reflexion": {
+    "id": "q02_reflexion",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:26:47+00:00",
+    "scored_at": "2026-10-26T22:30:52+00:00",
+    "judge_seconds": 49.7,
+    "scores": {
+      "faithfulness": 0.9090909090909091,
+      "answer_relevancy": 0.9984375907268889,
+      "llm_context_precision_with_reference": 0.99999999995,
+      "context_recall": 0.5
+    }
+  },
+  "q03_toolformer": {
+    "id": "q03_toolformer",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:26:54+00:00",
+    "scored_at": "2026-10-26T22:31:26+00:00",
+    "judge_seconds": 34.7,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9930594278718816,
+      "llm_context_precision_with_reference": 0.9999999999,
+      "context_recall": 0.0
+    }
+  },
+  "q04_autogen": {
+    "id": "q04_autogen",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:01+00:00",
+    "scored_at": "2026-10-26T22:32:00+00:00",
+    "judge_seconds": 33.6,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "q05_metagpt": {
+    "id": "q05_metagpt",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:08+00:00",
+    "scored_at": "2026-10-26T22:32:34+00:00",
+    "judge_seconds": 34.3,
+    "scores": {
+      "faithfulness": 0.875,
+      "answer_relevancy": 0.8004571776682327,
+      "llm_context_precision_with_reference": 0.699999999965,
+      "context_recall": 0.0
+    }
+  },
+  "q06_rag_lewis": {
+    "id": "q06_rag_lewis",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:15+00:00",
+    "scored_at": "2026-10-26T22:33:11+00:00",
+    "judge_seconds": 36.8,
+    "scores": {
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.8964149490661942,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.5
+    }
+  },
+  "q07_selfrag": {
+    "id": "q07_selfrag",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:23+00:00",
+    "scored_at": "2026-10-26T22:33:47+00:00",
+    "judge_seconds": 36.2,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8079827962517769,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "q08_raptor": {
+    "id": "q08_raptor",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:30+00:00",
+    "scored_at": "2026-10-26T22:34:19+00:00",
+    "judge_seconds": 31.7,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9619039221434972,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "q09_hyde": {
+    "id": "q09_hyde",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:38+00:00",
+    "scored_at": "2026-10-26T22:35:25+00:00",
+    "judge_seconds": 66.4,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9999999999999996,
+      "llm_context_precision_with_reference": 0.99999999995,
+      "context_recall": 1.0
+    }
+  },
+  "q10_crag": {
+    "id": "q10_crag",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:45+00:00",
+    "scored_at": "2026-10-26T22:36:09+00:00",
+    "judge_seconds": 43.4,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.967408801225735,
+      "llm_context_precision_with_reference": 0.249999999975,
+      "context_recall": 0.5
+    }
+  },
+  "q11_graphrag": {
+    "id": "q11_graphrag",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:27:52+00:00",
+    "scored_at": "2026-10-26T22:36:48+00:00",
+    "judge_seconds": 39.1,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "llm_context_precision_with_reference": 0.9999999999,
+      "context_recall": 0.0
+    }
+  },
+  "q12_lost_middle": {
+    "id": "q12_lost_middle",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:28:00+00:00",
+    "scored_at": "2026-10-26T22:37:22+00:00",
+    "judge_seconds": 34.1,
+    "scores": {
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.7408578874866122,
+      "llm_context_precision_with_reference": 0.3333333333,
+      "context_recall": 1.0
+    }
+  },
+  "q13_dpr": {
+    "id": "q13_dpr",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:28:07+00:00",
+    "scored_at": "2026-10-26T22:38:01+00:00",
+    "judge_seconds": 38.8,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8382830724188358,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.0
+    }
+  },
+  "q14_tot": {
+    "id": "q14_tot",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:28:15+00:00",
+    "scored_at": "2026-10-26T22:38:44+00:00",
+    "judge_seconds": 43.0,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9742898046584189,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.5
+    }
+  },
+  "q15_ragas": {
+    "id": "q15_ragas",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "generated_at": "2026-10-26T22:28:22+00:00",
+    "scored_at": "2026-10-26T22:39:16+00:00",
+    "judge_seconds": 32.1,
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "llm_context_precision_with_reference": 0.0,
+      "context_recall": 0.5
+    }
+  }
+}

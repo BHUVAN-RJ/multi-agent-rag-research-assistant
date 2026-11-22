@@ -1,0 +1,812 @@
+{
+  "q01_react": {
+    "id": "q01_react",
+    "question": "How does ReAct combine reasoning and acting in language models, and what does the interleaving buy on HotpotQA and Fever?",
+    "reference": "ReAct prompts an LLM to generate reasoning traces and task-specific actions in an interleaved manner: reasoning helps the model induce, track and update action plans and handle exceptions, while actions let it gather information from external sources such as a Wikipedia API. On HotpotQA and Fever this interaction overcomes hallucination and error propagation seen in chain-of-thought reasoning and yields more interpretable, human-like trajectories.",
+    "source_ids": [
+      "2210.03629"
+    ],
+    "response": "**How ReAct Combines Reasoning and Acting:**\n* ReAct is a technique that prompts language models to systematically *interleave* reasoning traces (such as step-by-step explicit thinking or Chain-of-Thought) and actions (such as interacting with external environments or APIs like Wikipedia) [3][4][5]. \n* This interleaving allows the model to generate mental spaces and thoughts to direct its action plans, while using information gathered from actions to update its reasoning and synthesize final answers [1][3].\n\n**What Interleaving Buys on HotpotQA and Fever:**\n* **Synergy and Improved Performance:** ReAct consistently outperforms action-only (Act) prompting methods on both HotpotQA and Fever, demonstrating that reasoning traces successfully guide acting and help synthesize final answers [1].\n* **Combining Internal and External Knowledge:** Proper interleaving allows the model to effectively combine its internal parametric knowledge with external knowledge retrieved from sources like Wikipedia, turning the model into a more generalizable knowledge-reasoning agent [2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) ReAct: Synergizing Reasoning and Acting in Language Models | arXiv:2210.03629 | p.5 3.3 RESULTS AND OBSERVATIONS\n3.3 RESULTS AND OBSERVATIONS\n\nReAct outperforms Act consistently Table 1 shows HotpotQA and Fever results using PaLM- 540B as the base model with different prompting methods. We note that ReAct is better than Act on both tasks, demonstrating the value of reasoning to guide acting, especially for synthesizing the final answer, as shown in Figure 1 (1c-d). Fine-tuning results 3 also confirm the benefit of reasoning traces for more informed acting. 3Of all trajectories with correct final answers, those with 7 steps on HotpotQA and 5 steps on FEVER only take up 0.84% and 1.33% respectively.",
+      "[2] (corpus) ReAct: Synergizing Reasoning and Acting in Language Models | arXiv:2210.03629 | p.6 3.3 RESULTS AND OBSERVATIONS\nThese results indicate the value of properly combining model internal knowledge and external knowledge for reasoning tasks. ReAct performs best for fine-tuning Figure 3 shows the scaling effect of prompting/finetuning four methods (Standard, CoT, Act, ReAct) on HotpotQA. With PaLM-8/62B, promptingReAct performs worst among four methods due to the difficulty to learn both reasoning and acting from in-context examples. However, when finetuned with just 3,000 examples, ReAct becomes the best method among the four, with PaLM-8B finetuned ReAct outperforming all PaLM-62B prompting methods, and PaLM-62B finetuned ReAct outperforming all 540B prompting methods. In contrast, finetuning Standard or CoT is significantly worse than finetuning ReAct or Act for both PaLM- 8/62B, as the former essentially teaches models to memorize (potentially halluincated) knowledge facts, and the latter teaches models how to (reason and) act to access information from Wikipedia, a more generalizable skill for knowledge reasoning.",
+      "[3] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.24 D Application Details\nWe compare our system’s performance with ReAct, which treats ALFWorld as a text-completion task. ReAct (Yao et al., 2022) is a few-shot prompting technique that interleaves reasoning and acting, allowing for greater synergy between the two and significantly improving performance on both language and decision-making tasks. We integrate ReAct into AutoGen by modifying the prompts in a conversational manner. Following ReAct, we employ a two-shot setting. The fewshot prompts are obtained from the corresponding repository. As shown in Table 3, the two-agent\n\nTask description You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a safe 1, a drawer 2, a dra wer 1, a shelf 3, a shelf 2, and a shelf 1.",
+      "[4] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.6 4.2 Reasoning: HotpotQA\n4.2 Reasoning: HotpotQA\n\nHotPotQA [28] is a Wikipedia-based dataset with 113k question-and-answer pairs that challenge agents to parse content and reason over several supporting documents. To test improvement in reasoning only ability, we implement Reflexion + Chain-of-Thought (CoT) [ 26] for step-by-step Q → A and Q, Cgt → A implementations, where Q is the question, Cgt is the ground truth context from the dataset, and A is the final answer. Since CoT is not a multi-step decision-making technique, we give Cgt to the agent so that we can isolate the reasoning behavior over large sections of the provided text. To test holistic question and answering ability, which requires reasoning and action choice, we implement a Reflexion + ReAct [ 30] agent that can retrieve relevant context using a Wikipedia API and infer answers using step-by-step explicit thinking. For CoT implementations, we use 6-shot prompting; for ReAct, we use 2-shot prompting, and for self-reflection, we use 2-shot prompting. All examples can be found in the appendix.",
+      "[5] (corpus) AgentBench: Evaluating LLMs as Agents | arXiv:2308.03688 | p.9 5 RELATEDWORK\nLLM-as-Agent.In pre-LLM era, text game environments such as TextWorld (Côté et al., 2019), Jericho (Hausknecht et al., 2020), and LIGHT (Urbanek et al., 2019) are dominant in language agent study which bases on BERT (Devlin et al., 2019) and reinforcement learning. With the advent of LLMs, the study of LLM agents begins to thrive (Huang et al., 2022), especially after Chain-of-Thought (Wei et al., 2022b) came out. ReAct (Yao et al., 2023b) is a pioneer work to combine CoT reasoning and actions in agent tasks. Later, a multitude of advanced reasoning strategies (Kim et al., 2023; Shinn et al., 2023; Wang et al., 2023d; Liu et al., 2023; Yao et al., 2023a; Gu et al., 2023) and applications including frameworks (Richards, 2023; Nakajima, 2023; age, 2023) and multi-agents (Park et al., 2023; Hong et al., 2023; Wu et al., 2023) for LLM-as-Agent have emerged and arouse much public interest. Nevertheless, limited datasets and models and available on the topic, without a standard and comprehensive benchmark."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2210.03629",
+      "2210.03629",
+      "2308.08155",
+      "2303.11366",
+      "2308.03688"
+    ],
+    "chunk_ids": [
+      "2210.03629v3::chunk-0030",
+      "2210.03629v3::chunk-0035",
+      "2308.08155v2::chunk-0109",
+      "2303.11366v4::chunk-0027",
+      "2308.03688v3::chunk-0050"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1570,
+    "output_tokens": 212,
+    "llm_latency_ms": 1421.051457989961,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1420.9
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1482.7,
+    "total_ms": 2995.023583061993,
+    "generated_at": "2026-10-26T22:47:09+00:00"
+  },
+  "q02_reflexion": {
+    "id": "q02_reflexion",
+    "question": "What are the three models in the Reflexion framework and how does Reflexion improve an agent without updating its weights?",
+    "reference": "Reflexion uses an Actor that generates text and actions, an Evaluator that scores the Actor's outputs, and a Self-Reflection model that generates verbal reinforcement cues. Instead of updating weights, the agent verbally reflects on task feedback and keeps that reflective text in an episodic memory buffer to make better decisions in later trials, reaching 91% pass@1 on HumanEval versus 80% for GPT-4.",
+    "source_ids": [
+      "2303.11366"
+    ],
+    "response": "Based on the provided sources, here are the three models in the Reflexion framework and how the framework improves an agent without updating weights:\n\n### The Three Models in the Reflexion Framework\n1. **Actor ($M_a$):** The model responsible for generating text and actions to interact with the environment [1].\n2. **Evaluator ($M_e$):** The model that scores or evaluates the outputs and actions produced by the Actor [1].\n3. **Self-Reflection ($M_sr$):** The model that generates verbal reinforcement cues and linguistic feedback to help the Actor self-improve in subsequent trials [1][2].\n\n### How Reflexion Improves an Agent Without Updating Weights\nInstead of relying on expensive model fine-tuning and traditional weight updates, Reflexion improves language agents through linguistic feedback and episodic memory [2]. Specifically:\n* **Verbal Reflection:** The agent verbally reflects on task feedback signals (such as scalar values or free-form language from external or internal sources) [2].\n* **Episodic Memory Buffer:** The agent maintains its own reflective text (generated by the Self-Reflection model) in an episodic memory buffer [1][2].\n* **Inducing Better Decisions:** By storing and accessing these reflective insights in subsequent trials, the agent uses the historical context to guide future decision-making and avoid past mistakes without altering its underlying parameters [2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.3 3 Reflexion: reinforcement via verbal reflection\n3 Reflexion: reinforcement via verbal reflection\n\nWe develop a modular formulation for Reflexion, utilizing three distinct models: an Actor, denoted as Ma, which generates text and actions; anEvaluator model, represented by Me, that scores the outputs produced by Ma; and a Self-Reflection model, denoted as Msr, which generates verbal reinforcement cues to assist the Actor in self-improvement. We provide a detailed description of each of these models and subsequently elucidate their collaborative functioning within the Reflexion framework.\n\nActionObs / Reward Trajectory (short-term memory) Experience (long-term memory) Self-reflection (LM) Agent Actor (LM) Environment Evaluator (LM) External feedback Internal feedback Reflective text Algorithm 1 Reinforcement via self-reflection Initialize Actor, Evaluator, Self-Reflection:",
+      "[2] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.1 Abstract\nLarge language models (LLMs) have been increasingly used to interact with external environments (e.g., games, compilers, APIs) as goal-driven agents. However, it remains challenging for these language agents to quickly and efficiently learn from trial-and-error as traditional reinforcement learning methods require extensive training samples and expensive model fine-tuning. We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback. Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials. Reflexion is flexible enough to incorporate various types (scalar values or free-form language) and sources (external or internally simulated) of feedback signals, and obtains significant improvements over a baseline agent across diverse tasks (sequential decision-making, coding, language reasoning).",
+      "[3] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.20 2.2 Agent Capability Acquisition\n(4) Self-driven Evolution. This method allows agents to autonomously improve through self-directed learning and feedback mechanisms. LMA3 [97] enables the agent to autonomously set goals for itself, and gradually improve its capability by exploring the environment and receiving feedback from a reward function. Following this mechanism, the agent can acquire knowledge and develop capabilities according to its own preferences. SALLM- MS [98] integrates advanced LLMs like GPT-4 into a multi-agent system, agents can adapt and perform",
+      "[4] (corpus) Generative Agents: Interactive Simulacra of Human Behavior | arXiv:2304.03442 | p.13 6.2 Conditions\nAll conditions were used to independently answer each of the interview questions. We compared the generative agent architecture to ablations that disabled the agents’ access to some or all of its three types of memory in its memory stream—observation, reflection, and planning—and to a human crowdworker-authored condition. There are three ablated architectures: a no observation, no reflection, no planning architecture without access to anything in the memory stream such as observations, plans, and reflections; a no reflection, no planning architecture with access to observations in the memory stream but no access to plans or reflections; and a no reflections architecture with access to observations and plans but without access to reflections. The no observation, no reflection, no planning condition effectively represents the previous state of the art for agents created through large language models [12, 46, 80].",
+      "[5] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.13 2.1.3 Planning Module\n• Model Feedback. Apart from the aforementioned environmental and human feedback, which are external signals, researchers have also investigated the utilization of internal feedback from the agents themselves. This type of feedback is usually generated based on pre-trained models. In specific, [63] proposes a self-refine mechanism. This mechanism consists of three crucial components: output, feedback, and refinement. Firstly, the agent generates an output. Then, it utilizes LLMs to provide feedback on the output and offer guidance on how to refine it. At last, the output is improved by the feedback and refinement. This output-feedbackrefinement process iterates until reaching some desired conditions. SelfCheck [64] allows agents to examine and evaluate their reasoning steps generated at various stages. They can then correct any errors by comparing the outcomes. InterAct [65] uses different language models (such as ChatGPT and InstructGPT) as auxiliary roles, such as checkers and sorters, to help the main language model avoid erroneous and ine fficient actions."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2303.11366",
+      "2303.11366",
+      "2308.11432",
+      "2304.03442",
+      "2308.11432"
+    ],
+    "chunk_ids": [
+      "2303.11366v4::chunk-0014",
+      "2303.11366v4::chunk-0001",
+      "2308.11432v7::chunk-0089",
+      "2304.03442v2::chunk-0084",
+      "2308.11432v7::chunk-0052"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1224,
+    "output_tokens": 288,
+    "llm_latency_ms": 1423.3013750053942,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1423.0
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1455.1,
+    "total_ms": 2879.1990829631686,
+    "generated_at": "2026-10-26T22:47:18+00:00"
+  },
+  "q03_toolformer": {
+    "id": "q03_toolformer",
+    "question": "How does Toolformer decide which sampled API calls to keep when building its self-supervised training data?",
+    "reference": "Toolformer samples candidate API calls, executes them, and keeps only the calls for which adding the call and its result reduces the language-modeling loss on the following tokens by at least a filtering threshold, compared with making no call or receiving no result. The kept calls are interleaved with the original text and the model is fine-tuned on it, requiring only a handful of demonstrations per API (calculator, Q&A system, search engine, translation system, calendar).",
+    "source_ids": [
+      "2302.04761"
+    ],
+    "response": "Toolformer decides which sampled API calls to keep by filtering them based on whether they **reduce perplexity on future tokens** [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Toolformer: Language Models Can Teach Themselves to Use Tools | arXiv:2302.04761 | p.11 8 Conclusion\n8 Conclusion\n\nWe have introduced Toolformer, a language model that learns in a self-supervised way how to use different tools such as search engines, calculators, and translation systems via simple API calls. This is done by finetuning on a large number of sampled API calls that are filtered based on whether they reduce perplexity on future tokens. Toolformer considerably improves zero-shot performance of a 6.7B parameter GPT-J model, enabling it to even outperform a much larger GPT-3 model on a range of different downstream tasks.\n\nA API Details",
+      "[2] (corpus) Toolformer: Language Models Can Teach Themselves to Use Tools | arXiv:2302.04761 | p.11 7 Limitations\nWhile our approach enables LMs to learn how to use a variety of tools in a self-supervised way, there are some clear limitations to what can be achieved with our method in its current form. One such limitation is the inability of Toolformer to use tools in a chain (i.e., using the output of one tool as an input for another tool). This is due to the fact that API calls for each tool are generated independently; as a consequence, there are no examples of chained tool use in the finetuning dataset. Our current approach also does not allow the LM to use a tool in an interactive way – especially for tools such as search engines, that could potentially return hundreds of different results, enabling a LM to browse through these results or to refine its search query in a similar spirit to Nakano et al. (2021) can be crucial for certain applications.",
+      "[3] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.15 2.1.4 Action Module\nLei Wang et al. A Survey on Large Language Model based Autonomous Agents 15 proposes to automatically generate queries to extract relevant content from external web pages when responding to user request. TPTU [68] explores the potential of LLMs to address intricate tasks through strategic task planning and API-based tools. Gorilla [69] introduces a fine-tuned LLM capable of generating precise input arguments for API calls, effectively mitigating hallucination issues during external API usage. ToolFormer [15] employs selfsupervised learning to determine when and how to invoke external tools, using demonstrations of tool APIs for training. API-Bank [70] offers a comprehensive benchmark with a diverse collection of API tools to systematically evaluate tool-augmented LLMs, alongside robust training datasets designed to enhance their integration capabilities. ToolL- LaMA [14] proposes a tool-use framework encompassing data collection, training, and evaluation, with the resulting fine-tuned model excelling across a wide array of APIs.",
+      "[4] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.5 3.2.1 TRAINING THE CRITIC MODEL\nNo Retrieval No Retrieval Retriever Figure 2: SELF -RAG training examples. The left example does not require retrieval while the right one requires retrieval; thus, passages are inserted. More examples are in Appendix Table 4. used to generate such feedback (Liu et al., 2023b). However, depending on such proprietary LMs can raise API costs and diminish reproducibility (Chen et al., 2023). We create supervised data by prompting GPT-4 to generate reflection tokens and then distill their knowledge into an in-houseC. For each group of reflection tokens, we randomly sample instances from the original training data: {X sample, Ysample} ∼ {X, Y}. As different reflection token groups have their own definitions and input, as shown in Table 1, we use different instruction prompts for them. Here, we use Retrieve as an example.",
+      "[5] (corpus) Tool Learning with Foundation Models | arXiv:2304.08354 | p.18 3.3 Training Models for Improved Tool Learning\nSelf-supervised Learning. Despite reducing the heavy requirements on human behavior annotation, semisupervised learning still requires a seed labeled dataset to attain the pseudo labels. Besides, the biases in the seed dataset may also be amplified during training, leading to poor generalization performance. To this end, researchers recently show that with a few demonstrations, foundation models can teach themselves how to utilize a tool in a self-supervised manner (Parisi et al., 2022; Schick et al., 2023). For instance, Toolformer (Schick et al., 2023) leverages the in-context learning ability of foundation models to iteratively bootstrap tool-use examples based on a handful of human-written examples. These auto-generated examples are further filtered to reduce noise. The final tool-use dataset contains sufficient supervision, significantly improving GPT-J’s (Wang & Komatsuzaki, 2021) tool-use performance, highlighting the potential of selfsupervised learning for enhancing tool-use capabilities.\n\n3.3.2 Learning from Feedback"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2302.04761",
+      "2302.04761",
+      "2308.11432",
+      "2310.11511",
+      "2304.08354"
+    ],
+    "chunk_ids": [
+      "2302.04761v1::chunk-0056",
+      "2302.04761v1::chunk-0054",
+      "2308.11432v7::chunk-0062",
+      "2310.11511v1::chunk-0024",
+      "2304.08354v3::chunk-0101"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.1k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1303,
+    "output_tokens": 27,
+    "llm_latency_ms": 710.4346251580864,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 710.3
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1080.7,
+    "total_ms": 1791.597583098337,
+    "generated_at": "2026-10-26T22:47:26+00:00"
+  },
+  "q04_autogen": {
+    "id": "q04_autogen",
+    "question": "What are the built-in agent types in AutoGen and what role does each play in a multi-agent conversation?",
+    "reference": "AutoGen's highest-level abstraction is the ConversableAgent, which can use LLMs, humans and tools. AssistantAgent and UserProxyAgent are two pre-configured subclasses: the assistant acts as an LLM-backed AI assistant, while the user proxy solicits human input or executes code and function calls; a GroupChatManager coordinates group chats.",
+    "source_ids": [
+      "2308.08155"
+    ],
+    "response": "Based on the provided sources, AutoGen uses a generic design where agents are customizable and conversable, meaning they can receive, react, and respond to messages [1]. The highest-level agent abstraction is the `ConversableAgent` class, which by default can leverage LLMs, human inputs, and tools [2]. \n\nSpecific built-in roles and capabilities mentioned include:\n* **Agents with specialized roles:** Developers can create agents for tasks such as writing code, executing code, wiring in human feedback, and validating outputs by selecting and configuring a subset of built-in capabilities [1].\n* **User proxy agent:** A default user proxy agent allows for configurable levels and patterns of human involvement (such as frequency and conditions for requesting human input, including skipping input) [2]. Additionally, tool-backed user proxy agents have the capability to execute tools via code execution or function execution (such as executing code suggested by LLMs or making function calls) [2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.2 1 Introduction\nWhile there is contemporaneous exploration of multi-agent approaches, 3 we present AutoGen, a generalized multi-agent conversation framework (Figure 1), based on the following new concepts. 1 Customizable and conversable agents. AutoGen uses a generic design of agents that can leverage LLMs, human inputs, tools, or a combination of them. The result is that developers can easily and quickly create agents with different roles (e.g., agents to write code, execute code, wire in human feedback, validate outputs, etc.) by selecting and configuring a subset of built-in capabilities. The agent’s backend can also be readily extended to allow more custom behaviors. To make these agents suitable for multi-agent conversation, every agent is made conversable – they can receive, react, and respond to messages. When configured properly, an agent can hold multiple turns of conversations with other agents autonomously or solicit human inputs at certain rounds, enabling human agency and automation.",
+      "[2] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.3 2.1 Conversable Agents\nThe default user proxy agent allows configurable human involvement levels and patterns, e.g., frequency and conditions for requesting human input including the option for humans to skip providing input. 3) Tools. Tool-backed agents have the capability to execute tools via code execution or function execution. For example, the default user proxy agent in AutoGen is able to execute code suggested by LLMs, or make LLM-suggested function calls. Agent customization and cooperation. Based on application-specific needs, each agent can be configured to have a mix of basic back-end types to display complex behavior in multi-agent conversations. AutoGen allows easy creation of agents with specialized capabilities and roles by reusing or extending the built-in agents. The yellow-shaded area of Figure 2 provides a sketch of the built-in agents in AutoGen. The ConversableAgent class is the highest-level agent abstraction and, by default, can use LLMs, humans, and tools.",
+      "[3] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5.1 Multi-Agents Framework\nAutoGen is a versatile framework that allows for the creation of applications using language models. It is distinctive for its high level of customization, enabling developers to program agents using both natural language and code to define how these agents interact. This versatility enables its use in diverse fields, from technical areas such as coding and mathematics to consumer-focused sectors like entertainment. More recently, [Chen et al. , 2023c; Chen et al. , 2023a ] introduce frameworks for dynamic multi-agent collaboration, while [Zhou et al. , 2023a; Li et al. , 2023h; Xie et al., 2023 ] present platforms and libraries for building autonomous agents, emphasizing their adaptability in tasksolving and social simulations.\n\n5.2 Datasets and Benchmarks",
+      "[4] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5 Implementation Tools and Resources\n5 Implementation Tools and Resources\n\n5.1 Multi-Agents Framework\n\nWe provide a detailed introduction to three open-source multi-agent frameworks: MetaGPT [Hong et al. , 2023 ], CAMEL [Li et al., 2023b], and Autogen [Wu et al., 2023a]. They are all frameworks that utilize language models for complex task-solving with a focus on multi-agent collaboration, but they differ in their approaches and applications. MetaGPT is designed to embed human workflow processes into the operation of language model agents, thereby reducing the hallucination problem that often arises in complex tasks. It does this by encoding Standard Operating Procedures into the system and using an assembly line approach to assign specific roles to different agents.",
+      "[5] (corpus) The Rise and Potential of Large Language Model Based Agents: A Survey | arXiv:2309.07864 | p.30 4.2.1 Cooperative Interaction for Complementarity\nTalebirad et al. [409] are among the first to systematically introduce a comprehensive LLM-based multi-agent collaboration framework. This paradigm aims to harness the strengths of each individual agent and foster cooperative relationships among them. Many applications of multi-agent cooperation have successfully been built upon this foundation [27; 406; 407; 448]. Furthermore, AgentVerse [410] constructs a versatile, multi-task-tested framework for group agents cooperation. It can assemble a team of agents that dynamically adapt according to the task’s complexity. To promote more efficient collaboration, researchers hope that agents can learn from successful human cooperation examples [109]. MetaGPT [405] draws inspiration from the classic waterfall model in software development, standardizing agents’ inputs/outputs as engineering documents. By encoding advanced human process management experience into agent prompts, collaboration among multiple agents becomes more structured."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2308.08155",
+      "2308.08155",
+      "2402.01680",
+      "2402.01680",
+      "2309.07864"
+    ],
+    "chunk_ids": [
+      "2308.08155v2::chunk-0007",
+      "2308.08155v2::chunk-0013",
+      "2402.01680v2::chunk-0065",
+      "2402.01680v2::chunk-0063",
+      "2309.07864v3::chunk-0167"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.3k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1338,
+    "output_tokens": 197,
+    "llm_latency_ms": 1374.4745419826359,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1374.4
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1014.1,
+    "total_ms": 2388.879291014746,
+    "generated_at": "2026-10-26T22:47:34+00:00"
+  },
+  "q05_metagpt": {
+    "id": "q05_metagpt",
+    "question": "How does MetaGPT use Standardized Operating Procedures and roles to reduce errors in multi-agent software development?",
+    "reference": "MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences so agents with human-like domain expertise can verify intermediate results, which counters the cascading hallucinations of naively chained LLMs. It uses an assembly-line paradigm with five roles in a simulated software company: Product Manager, Architect, Project Manager, Engineer and QA Engineer, who exchange structured outputs such as requirement documents and design artifacts.",
+    "source_ids": [
+      "2308.00352"
+    ],
+    "response": "MetaGPT uses Standardized Operating Procedures (SOPs) and specialized roles to reduce errors and logic inconsistencies (such as cascading hallucinations) in multi-agent software development through the following mechanisms:\n\n* **Encoding SOPs into Prompt Sequences:** MetaGPT encodes human Standardized Operating Procedures into prompt sequences to streamline workflows and guide agents step-by-step using static instructions predefined by human experts [1][2]. \n* **Role Specialization and Assembly Line Paradigm:** It employs an assembly line paradigm that assigns diverse, human-like domain expertise and specific roles to various LLM-driven agents [1][2][3]. This breaks down complex software engineering tasks into manageable subtasks [1].\n* **Intermediate Verification:** Agents with these specific roles act as domain experts who verify intermediate results, which helps catch and reduce errors before they cascade through the system [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework | arXiv:2308.00352 | p.1 Abstract\nRemarkable progress has been made on automated problem solving through societies of agents based on large language models (LLMs). Existing LLM-based multi-agent systems can already solve simple dialogue tasks. Solutions to more complex tasks, however, are complicated through logic inconsistencies due to cascading hallucinations caused by naively chaining LLMs. Here we introduce MetaGPT, an innovative meta-programming framework incorporating efficient human workflows into LLM-based multi-agent collaborations. MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences for more streamlined workflows, thus allowing agents with human-like domain expertise to verify intermediate results and reduce errors. MetaGPT utilizes an assembly line paradigm to assign diverse roles to various agents, efficiently breaking down complex tasks into subtasks involving many agents working together. On collaborative software engineering benchmarks, MetaGPT generates more coherent solutions than previous chat-based multi-agent systems.",
+      "[2] (corpus) ChatDev: Communicative Agents for Software Development | arXiv:2307.07924 | p.5 4 Evaluation\n4 Evaluation\n\nBaselines We chose some representative LLMbased software development methods as our baselines. GPT-Engineer (Osika, 2023) is a fundamental single-agent approach in LLM-driven software agents with a precise understanding of task requirements and the application of one-step reasoning, which highlights its efficiency in generating detailed software solutions at the repository level. MetaGPT (Hong et al., 2023) is an advanced framework that allocates specific roles to various LLMdriven software agents and incorporates standardized operating procedures to enable multi-agent participation. In each step agents with specific roles generate solutions by adhering to static instructions predefined by human experts.",
+      "[3] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5 Implementation Tools and Resources\n5 Implementation Tools and Resources\n\n5.1 Multi-Agents Framework\n\nWe provide a detailed introduction to three open-source multi-agent frameworks: MetaGPT [Hong et al. , 2023 ], CAMEL [Li et al., 2023b], and Autogen [Wu et al., 2023a]. They are all frameworks that utilize language models for complex task-solving with a focus on multi-agent collaboration, but they differ in their approaches and applications. MetaGPT is designed to embed human workflow processes into the operation of language model agents, thereby reducing the hallucination problem that often arises in complex tasks. It does this by encoding Standard Operating Procedures into the system and using an assembly line approach to assign specific roles to different agents.",
+      "[4] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.15 A Related Work\n• MetaGPT: MetaGPT (Hong et al., 2023) is a specialized LLM application based on a multi-agent conversation framework for automatic software development. They assign different roles to GPTs to collaboratively develop software. They differ from AutoGen by being specialized solutions to a certain scenario, while AutoGen is a generic infrastructure to facilitate building applications for various scenarios.",
+      "[5] (corpus) MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework | arXiv:2308.00352 | p.4 3 METAGPT: A META-PROGRAMMING FRAMEWORK\n3 METAGPT: A META-PROGRAMMING FRAMEWORK\n\nMetaGPT is a meta-programming framework for LLM-based multi-agent systems. Sec. 3.1 provides an explanation of role specialization, workflow and structured communication in this framework, and illustrates how to organize a multi-agent system within the context of SOPs. Sec. 3.2 presents a communication protocol that enhances role communication efficiency. We also implement structured communication interfaces and an effective publish-subscribe mechanism. These methods enable agents to obtain directional information from other roles and public information from the environment. Finally, we introduce executable feedback—a self-correction mechanism for further enhancing code generation quality during run-time in Sec. 3.3.\n\n3.1 AGENTS IN STANDARD OPERATING PROCEDURES"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2308.00352",
+      "2307.07924",
+      "2402.01680",
+      "2308.08155",
+      "2308.00352"
+    ],
+    "chunk_ids": [
+      "2308.00352v7::chunk-0001",
+      "2307.07924v5::chunk-0024",
+      "2402.01680v2::chunk-0063",
+      "2308.08155v2::chunk-0058",
+      "2308.00352v7::chunk-0016"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 4.5k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1113,
+    "output_tokens": 175,
+    "llm_latency_ms": 1326.0739999823272,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1326.0
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1226.3,
+    "total_ms": 2552.5958749931306,
+    "generated_at": "2026-10-26T22:47:43+00:00"
+  },
+  "q06_rag_lewis": {
+    "id": "q06_rag_lewis",
+    "question": "In the original retrieval-augmented generation paper by Lewis et al., what are the parametric and non-parametric memories, and how do RAG-Sequence and RAG-Token differ?",
+    "reference": "The parametric memory is a pre-trained seq2seq model (BART) and the non-parametric memory is a dense vector index of Wikipedia accessed with a pre-trained neural retriever (DPR). RAG-Sequence uses the same retrieved document to generate the whole output sequence, while RAG-Token can draw a different retrieved document for each target token.",
+    "source_ids": [
+      "2005.11401"
+    ],
+    "response": "Based on the provided sources, the available information regarding parametric and non-parametric memories and the difference between RAG-Sequence and RAG-Token is limited to the following:\n\n* **Parametric and Non-Parametric Memories:** Retrieval-augmented generation (RAG) models combine parametric memory (such as a pre-trained language model like BART) with a non-parametric memory (which consists of a neural retriever and a large, external knowledge source, such as a corpus of text records) [4][5]. \n* **RAG-Sequence vs. RAG-Token:** The provided sources mention Lewis et al. (2020) as the foundational RAG paper [1][2][3][4], but **do not** contain details explaining the specific differences between the RAG-Sequence and RAG-Token models.",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Corrective Retrieval Augmented Generation | arXiv:2401.15884 | p.1 1 Introduction\nRetrieved Documents Generator Accurate Documents Inaccurate Documents Generator Figure 1: The examples show that a low-quality retriever is prone to introducing a substantial amount of irrelevant information, impeding the generators from acquiring accurate knowledge and potentially misleading them. the parametric knowledge they encapsulate (Zhang et al., 2023b; Muhlgay et al., 2023). Prior research has introduced the retrieval techniques to incorporate the knowledge relevant to input and augment generation, as exemplified by retrieval-augmented generation (RAG) (Lewis et al., 2020). In this framework, the input to models is augmented by prepending relevant documents that are retrieved from an external knowledge corpus (Guu et al., 2020). While RAG serves as a practicable complement to LLMs, its effectiveness is contingent upon the relevance and accuracy of the retrieved documents (Li et al., 2022; Tan et al., 2022).",
+      "[2] (corpus) From Local to Global: A Graph RAG Approach to Query-Focused Summarization | arXiv:2404.16130 | p.1 1 Introduction\n1 Introduction\n\nRetrieval augmented generation (RAG) (Lewis et al., 2020) is an established approach to using LLMs to answer queries based on data that is too large to contain in a language model’s context window, meaning the maximum number of tokens (units of text) that can be processed by the LLM at once (Kuratov et al., 2024; Liu et al., 2023). In the canonical RAG setup, the system has access to a large external corpus of text records and retrieves a subset of records that are individually relevant to the query and collectively small enough to fit into the context window of the LLM. The LLM then Preprint. Under review.\n\narXiv:2404.16130v2 [cs.CL] 19 Feb 2025",
+      "[3] (corpus) Ragas: Automated Evaluation of Retrieval Augmented Generation | arXiv:2309.15217 | p.1 1 Introduction\nThe standard solution to these issues is to rely on Retrieval Augmented Generation (RAG) (Lee et al., 2019; Lewis et al., 2020; Guu et al., 2020). Answering a question then essentially involves retrieving relevant passages from a corpus and feeding these passages, along with the original question, to the LM. While initial approaches relied on specialised LMs for retrieval-augmented language modelling (Khandelwal et al., 2020; Borgeaud et al., 2022), recent work has suggested that simply adding retrieved documents to the input of a standard LM can also work well (Khattab et al., 2022; Ram et al., 2023; Shi et al., 2023), thus making it possible to use retrievalaugmented strategies in combination with LLMs that are only available through APIs.",
+      "[4] (corpus) Atlas: Few-shot Learning with Retrieval Augmented Language Models | arXiv:2208.03299 | p.1 1 Introduction\nIn this paper, we investigate whether few-shot learning requires models to store a large amount of information in their parameters, and if memorisation can be decoupled from generalisation. To do so, we leverage the fact that memory can be outsourced and replaced by an external non-parametric knowledge source by employing a retrieval-augmented architecture. These models employ a non-parametric memory, e.g. a neural retriever over a large, external, potentially non-static knowledge source to enhance a parametric language model. In addition to their memorisation abilities, such architectures are attractive due to a number of other established advantages in terms of adaptability, interpretability and efficiency (Guu et al., 2020; Lewis et al., 2020; Yogatama et al., 2021; Borgeaud et al., 2021, inter alia). However, retrieval-augmented models have yet to ∗equal contribution arXiv:2208.03299v3 [cs.CL] 16 Nov 2022\n\nFact checking:\n\nBermuda Triangle is in the western part of the Himalayas.\n\nAtlas False Masked Language Modelling:\n\nBermuda Triangle is in the <MASK> of the Atlantic Ocean.",
+      "[5] (corpus) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks | arXiv:2005.11401 | p.9 6 Discussion\n6 Discussion\n\nIn this work, we presented hybrid generation models with access to parametric and non-parametric memory. We showed that our RAG models obtain state of the art results on open-domain QA. We found that people prefer RAG’s generation over purely parametric BART, finding RAG more factual and specific. We conducted an thorough investigation of the learned retrieval component, validating its effectiveness, and we illustrated how the retrieval index can be hot-swapped to update the model without requiring any retraining. In future work, it may be fruitful to investigate if the two components can be jointly pre-trained from scratch, either with a denoising objective similar to BART or some another objective. Our work opens up new research directions on how parametric and non-parametric memories interact and how to most effectively combine them, showing promise in being applied to a wide variety of NLP tasks."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2401.15884",
+      "2404.16130",
+      "2309.15217",
+      "2208.03299",
+      "2005.11401"
+    ],
+    "chunk_ids": [
+      "2401.15884v3::chunk-0004",
+      "2404.16130v2::chunk-0003",
+      "2309.15217v2::chunk-0003",
+      "2208.03299v3::chunk-0003",
+      "2005.11401v4::chunk-0046"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1401,
+    "output_tokens": 173,
+    "llm_latency_ms": 1127.5122091174126,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1127.2
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 2240.6,
+    "total_ms": 3369.683542056009,
+    "generated_at": "2026-10-26T22:47:52+00:00"
+  },
+  "q07_selfrag": {
+    "id": "q07_selfrag",
+    "question": "What are the reflection tokens in Self-RAG and what does each one evaluate?",
+    "reference": "Self-RAG trains a single LM to retrieve on demand and to emit reflection tokens: Retrieve decides whether to retrieve, ISREL judges whether a passage is relevant to the input, ISSUP judges whether the generation is fully, partially or not supported by the passage, and ISUSE rates the usefulness of the response on a 1 to 5 scale.",
+    "source_ids": [
+      "2310.11511"
+    ],
+    "response": "Based on the provided sources, Self-RAG introduces special \"reflection tokens\" that come in two primary varieties—**\"retrieve\"** and **\"critic\"**—allowing the model to introspect and evaluate its own generation process [3]:\n\n* **Retrieve:** This token evaluates whether an external text passage or retrieval step is needed, allowing the model to dynamically decide when to retrieve information (e.g., predicting whether retrieval is needed via a token like $\\text{Retrieve} = \\text{Yes}$) [1][3].\n* **Critic:** These tokens act as critique/critic scores that assess the quality, correctness, support, or overall utility of the generated text and retrieved passages [3].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.6 3.3 SELF -RAG INFERENCE\n3.3 SELF -RAG INFERENCE\n\nGenerating reflection tokens to self-evaluate its own output makes SELF -RAG controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements. For tasks demanding factual accuracy (Min et al., 2023), we aim for the model to retrieve passages more frequently to ensure that the output aligns closely with the available evidence. Conversely, in more open-ended tasks, like composing a personal experience essay, the emphasis shifts towards retrieving less and prioritizing the overall creativity or utility score. In this section, we describe approaches to enforce control to meet these distinct objectives during the inference process.\n\nAdaptive retrieval with threshold.SELF -RAG dynamically decides when to retrieve text passages by predicting Retrieve . Alternatively, our framework allows a threshold to be set. Specifically, if the probability of generating the Retrieve =Yes token normalized over all output tokens in Retrieve surpasses a designated threshold, we trigger retrieval (details in Appendix Section A.3).",
+      "[2] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.10 6 CONCLUSION\n6 CONCLUSION\n\nThis work introduces SELF -RAG, a new framework to enhance the quality and factuality of LLMs through retrieval on demand and self-reflection. SELF -R AG trains an LM to learn to retrieve, generate, and critique text passages and its own generation by predicting the next tokens from its original vocabulary as well as newly added special tokens, called reflection tokens.SELF -R AG further enables the tailoring of LM behaviors at test time by leveraging reflection tokens. Our holistic evaluations on six tasks using multiple metrics demonstrate that SELF -RAG significantly outperforms LLMs with more parameters or with conventional retrieval-augmented generation approaches.",
+      "[3] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.12 C. Adaptive Retrieval\nprobability of generated terms [24]. When the probability falls below a certain threshold would activates the retrieval system to collect relevant information, thus optimizing the retrieval cycle. Self-RAG [25] introduces “reflection tokens” that allow the model to introspect its outputs. These tokens come in two varieties: “retrieve” and “critic”. The model autonomously decides when to activate retrieval, or alternatively, a predefined threshold may trigger the process. During retrieval, the generator conducts a fragment-level beam search across multiple paragraphs to derive the most coherent sequence. Critic scores are used to update the subdivision scores, with the flexibility to adjust these weights during inference, tailoring the model’s behavior. Self-RAG’s design obviates the need for additional classifiers or reliance on Natural Language Inference (NLI) models, thus streamlining the decision-making process for when to engage retrieval mechanisms and improving the model’s autonomous judgment capabilities in generating accurate responses.\n\nVI. TASK AND EVALUATION",
+      "[4] (corpus) From Local to Global: A Graph RAG Approach to Query-Focused Summarization | arXiv:2404.16130 | p.18 A.2 Self-Reflection\nA.2 Self-Reflection\n\nThe choice of prompt engineering techniques has a strong impact on the quality of knowledge graph extraction (Zhu et al., 2024), and different techniques have different costs in terms of tokens consumed and generated by the model. Self-reflection is a prompt engineering technique where the LLM generates an answer, and is then prompted to evaluate its output for correctness, clarity, or completeness, then finally generate an improved response based on that evaluation (Huang et al., 2023; Madaan et al., 2024; Shinn et al., 2024; Wang et al., 2022). We leverage self-reflection in knowledge graph extraction, and explore ways how removing self-reflection affects performance and cost.",
+      "[5] (corpus) Corrective Retrieval Augmented Generation | arXiv:2401.15884 | p.7 5.2 Baselines\nStandard RAG. We evaluated the standard RAG (Lewis et al., 2020) where an LM generates output given the query prepended with the top retrieved documents using the same retriever as in our system. Here we adopted several public instruction-tuned LLMs, including LLaMA2- 7B, 13B (Touvron et al., 2023b), Alpaca-7B,13B (Dubois et al., 2023), as well as LLaMA2-7B instruction-tuned in Self-RAG (Asai et al., 2024). Advanced RAG.(1) SAIL (Luo et al., 2023) that instruction-tuned an LM on the Alpaca instructiontuning data with top retrieved documents inserted before instructions. (2) Self-RAG (Asai et al., 2024) that tuned the LLaMA2 on the instructiontuning data comtaining several sets of reflection tokens which were labeled by GPT-4 (OpenAI, 2023). (3) Following Asai et al. (2024), we also cited the results of retrieval-augmented baselines trained with private data: Ret-ChatGPT and Ret- LLaMA-chat, which deploy the same augmentation technique above, as well as perplexity.ai, an InstructGPT-based production search system.\n\n5.3 Results"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2310.11511",
+      "2310.11511",
+      "2312.10997",
+      "2404.16130",
+      "2401.15884"
+    ],
+    "chunk_ids": [
+      "2310.11511v1::chunk-0031",
+      "2310.11511v1::chunk-0059",
+      "2312.10997v5::chunk-0068",
+      "2404.16130v2::chunk-0060",
+      "2401.15884v3::chunk-0034"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.4k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1397,
+    "output_tokens": 144,
+    "llm_latency_ms": 1149.1655830759555,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1145.8
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1962.2,
+    "total_ms": 3113.8682910241187,
+    "generated_at": "2026-10-26T22:48:01+00:00"
+  },
+  "q08_raptor": {
+    "id": "q08_raptor",
+    "question": "How does RAPTOR build its retrieval tree and what querying strategies does it use?",
+    "reference": "RAPTOR recursively embeds, clusters (with Gaussian Mixture Models) and summarizes text chunks with a language model, building a tree with different levels of summarization from the bottom up. At query time it uses either tree traversal, which selects the most relevant nodes layer by layer, or a collapsed tree, which evaluates nodes across all layers together.",
+    "source_ids": [
+      "2401.18059"
+    ],
+    "response": "Based on the provided sources, here is how RAPTOR builds its retrieval tree and the querying strategies it employs:\n\n### Building the Retrieval Tree\n* **Recursive Clustering and Summarization:** RAPTOR constructs a hierarchical tree structure by employing recursive clustering and summarization techniques [1]. This process organizes the retrieval corpora and augments parametric knowledge with contextual information at various levels of abstraction [1].\n\n### Querying Strategies\nRAPTOR embeds all tree nodes using SBERT [2] and utilizes two main querying mechanisms:\n\n1. **Tree Traversal:** \n   * Starts at the root layer of the tree, where it computes the cosine similarity between the query embedding and the embeddings of all nodes in the initial layer to select the top-$k$ most relevant root nodes [2].\n   * Moves to the next layer by considering the children of the selected nodes and again selects the top-$k$ nodes based on cosine similarity to the query vector [2].\n   * Repeats this process layer-by-layer until reaching the leaf nodes [2].\n   * Finally, concatenates the text from all selected nodes to form the retrieved context [2].\n\n2. **Collapsed Tree:**\n   * Another mechanism provided by RAPTOR to traverse the multi-layered tree for retrieving relevant information (with pseudocode detailed in Appendix F of the paper) [2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval | arXiv:2401.18059 | p.9 5 CONCLUSION\n5 CONCLUSION\n\nIn this paper, we have presented RAPTOR, a novel tree-based retrieval system that augments the parametric knowledge of large language models with contextual information at various levels of abstraction. By employing recursive clustering and summarization techniques, RAPTOR creates a hierarchical tree structure that is capable of synthesizing information across various sections of the retrieval corpora. During the query phase, RAPTOR leverages this tree structure for more effective retrieval. Our controlled experiments demonstrated that RAPTOR not only outperforms traditional retrieval methods but also sets new performance benchmarks on several question-answering tasks.\n\n6 REPRODUCIBILITY STATEMENT",
+      "[2] (corpus) RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval | arXiv:2401.18059 | p.4 3 METHODS\nQuerying In this section, we elaborate on the two querying mechanisms employed by RAPTOR: tree traversal and collapsed tree. These methods offer unique ways of traversing the multi-layered RAPTOR tree to retrieve relevant information, each with its own advantages and trade-offs. We provide the pseudocode of both methods in Appendix F. Note that we embed all nodes using SBERT. The tree traversal method first selects the top-k most relevant root nodes based on their cosine similarity to the query embedding. The children of these selected nodes are considered at the next layer and the top-k nodes are selected from this pool again based on their cosine similarity to the query vector. This process is repeated until we reach the leaf nodes. Finally, the text from all selected nodes is concatenated to form the retrieved context. The algorithm’s steps are outlined below: 1. Start at the root layer of the RAPTOR tree. Compute the cosine similarity between the query embedding and the embeddings of all nodes present at this initial layer. 2.",
+      "[3] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.4 B. Advanced RAG\nThis involves strategies: enhancing data granularity, optimizing index structures, adding metadata, alignment optimization, and mixed retrieval. While the goal of query optimization is to make the user’s original question clearer and more suitable for the retrieval task. Common methods include query rewriting query transformation, query expansion and other techniques [7], [9]–[11].",
+      "[4] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.11 B. Recursive Retrieval\nB. Recursive Retrieval\n\nRecursive retrieval is often used in information retrieval and NLP to improve the depth and relevance of search results. The process involves iteratively refining search queries based on the results obtained from previous searches. Recursive Retrieval aims to enhance the search experience by gradually converging on the most pertinent information through a feedback loop. IRCoT [61] uses chain-of-thought to guide the retrieval process and refines the CoT with the obtained retrieval results. ToC [57] creates a clarification tree that systematically optimizes the ambiguous parts in the Query. It can be particularly useful in complex search scenarios where the user’s needs are not entirely clear from the outset or where the information sought is highly specialized or nuanced. The recursive nature of the process allows for continuous learning and adaptation to the user’s requirements, often resulting in improved satisfaction with the search outcomes.",
+      "[5] (corpus) From Local to Global: A Graph RAG Approach to Query-Focused Summarization | arXiv:2404.16130 | p.3 2.2 Using Knowledge Graphs with LLMs and RAG\nOther techniques (Wang et al., 2023b) use the knowledge graph to enhance retrieval, where at query time an LLM-based agent dynamically traverses a graph with nodes representing document elements (e.g., passages, tables) and edges encoding lexical and semantical similarity or structural relationships. GraphRAG contrasts with these approaches by focusing on a previously unexplored quality of graphs in this context: their inherent modularity (Newman, 2006) and the ability to partition graphs into nested modular communities of closely related nodes (e.g., Louvain, Blondel et al. 2008; Leiden, Traag et al. 2019). Specifically, GraphRAG recursively creates increasingly global summaries by using the LLM to create summaries spanning this community hierarchy."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2401.18059",
+      "2401.18059",
+      "2312.10997",
+      "2312.10997",
+      "2404.16130"
+    ],
+    "chunk_ids": [
+      "2401.18059v1::chunk-0043",
+      "2401.18059v1::chunk-0020",
+      "2312.10997v5::chunk-0018",
+      "2312.10997v5::chunk-0065",
+      "2404.16130v2::chunk-0013"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 4.7k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1139,
+    "output_tokens": 276,
+    "llm_latency_ms": 1532.8255409840494,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1532.5
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 2186.0,
+    "total_ms": 3720.6085410434753,
+    "generated_at": "2026-10-26T22:48:11+00:00"
+  },
+  "q09_hyde": {
+    "id": "q09_hyde",
+    "question": "How do Hypothetical Document Embeddings (HyDE) enable zero-shot dense retrieval without relevance labels?",
+    "reference": "HyDE first instructs an instruction-following language model such as InstructGPT to generate a hypothetical document for the query, which captures relevance patterns but may contain false details. An unsupervised contrastive encoder such as Contriever then embeds that document, and real corpus documents near that embedding are retrieved, with the encoder's dense bottleneck filtering out the incorrect details.",
+    "source_ids": [
+      "2212.10496"
+    ],
+    "response": "Hypothetical Document Embeddings (HyDE) enable zero-shot dense retrieval without relevance labels through a two-step process that bypasses the need to jointly learn query and document embedding spaces using relevance judgments [1][2]:\n\n* **Generating a Hypothetical Document:** Given a query, HyDE uses an instruction-following language model (such as InstructGPT) in a zero-shot manner to generate a hypothetical document [1]. While this document is unreal and may contain false details, it captures the expected relevance patterns [1].\n* **Encoding and Grounding via Document-Only Space:** Instead of mapping queries directly to documents, HyDE performs the search entirely within a document-only embedding space using an unsupervised contrastively learned encoder (such as Contriever) [1][2]. The encoder translates the generated hypothetical document into an embedding vector, which identifies a neighborhood in the corpus embedding space to retrieve similar real documents based on vector similarity [1]. \n* **Filtering Errors:** The dense bottleneck of the unsupervised encoder acts as a filter, removing incorrect details from the generated text and grounding the hypothetical document to actual documents in the corpus [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Precise Zero-Shot Dense Retrieval without Relevance Labels | arXiv:2212.10496 | p.1 Abstract\nWhile dense retrieval has been shown effective and efficient across tasks and languages, it remains difficult to create effective fully zero-shot dense retrieval systems when no relevance label is available. In this paper, we recognize the difficulty of zero-shot learning and encoding relevance. Instead, we propose to pivot through Hypothetical Document Embeddings (HyDE). Given a query, HyDE first zero-shot instructs an instruction-following language model (e.g. InstructGPT) to generate a hypothetical document. The document captures relevance patterns but is unreal and may contain false details. Then, an unsupervised contrastively learned encoder (e.g. Contriever) encodes the document into an embedding vector. This vector identifies a neighborhood in the corpus embedding space, where similar real documents are retrieved based on vector similarity. This second step ground the generated document to the actual corpus, with the encoder’s dense bottleneck filtering out the incorrect details.",
+      "[2] (corpus) Precise Zero-Shot Dense Retrieval without Relevance Labels | arXiv:2212.10496 | p.3 3.1 Preliminaries\nsim(q, d) = ⟨encq(q), encd(d)⟩ = ⟨vq, vd⟩ (1) For zero-shot retrieval, we consider L query sets Q1, Q2, ..., QL and their corresponding search corpus, document sets D1, D2, ..., DL. Denote the j-th query from i-th set query set Qi as qij. We need to fully define mapping functions encq and encd without access to any query set Qi, document set Di, or any relevance judgment rij. The difficulty of zero-shot dense retrieval lies precisely in Equation 1: it requires learning of two embedding functions (for query and document respectively) into the same embedding space where inner product captures relevance. Without relevance judgments/scores to fit, learning becomes intractable.\n\n3.2 HyDE\n\nHyDE circumvents the aforementioned learning problem by performing search in documentonly embedding space that captures documentdocument similarity. This can be easily learned using unsupervised contrastive learning (Izacard et al., 2021; Gao et al., 2021; Gao and Callan, 2022). We set document encoder encd directly as a contrastive encoder enccon.",
+      "[3] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.9 D. Embedding\nFor instance, sparse retrieval models can be used 6https://github.com/aurelio-labs/semantic-router 7https://huggingface.co/spaces/mteb/leaderboard to provide initial search results for training dense retrieval models. Additionally, pre-training language models (PLMs) can be utilized to learn term weights to enhance sparse retrieval. Specifically, it also demonstrates that sparse retrieval models can enhance the zero-shot retrieval capability of dense retrieval models and assist dense retrievers in handling queries containing rare entities, thereby improving robustness. 2) Fine-tuning Embedding Model: In instances where the context significantly deviates from pre-training corpus, particularly within highly specialized disciplines such as healthcare, legal practice, and other sectors replete with proprietary jargon, fine-tuning the embedding model on your own domain dataset becomes essential to mitigate such discrepancies.",
+      "[4] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.5 C. Modular RAG\nInnovations such as the Rewrite-Retrieve-Read [7]model leverage the LLM’s capabilities to refine retrieval queries through a rewriting module and a LM-feedback mechanism to update rewriting model., improving task performance. Similarly, approaches like Generate-Read [13] replace traditional retrieval with LLM-generated content, while Recite- Read [22] emphasizes retrieval from model weights, enhancing the model’s ability to handle knowledge-intensive tasks. Hybrid retrieval strategies integrate keyword, semantic, and vector searches to cater to diverse queries. Additionally, employing sub-queries and hypothetical document embeddings (HyDE) [11] seeks to improve retrieval relevance by focusing on embedding similarities between generated answers and real documents.",
+      "[5] (corpus) Dense Passage Retrieval for Open-Domain Question Answering | arXiv:2004.04906 | p.9 7 Related Work\nThe use of dense vector representations for retrieval has a long history since Latent Semantic Analysis (Deerwester et al., 1990). Using labeled pairs of queries and documents, discriminatively trained dense encoders have become popular recently (Yih et al., 2011; Huang et al., 2013; Gillick et al., 2019), with applications to cross-lingual document retrieval, ad relevance prediction, Web search and entity retrieval. Such approaches complement the sparse vector methods as they can potentially give high similarity scores to semantically relevant text pairs, even without exact token matching. The dense representation alone, however, is typically inferior to the sparse one. While not the focus of this work, dense representations from pretrained models, along with cross-attention mechanisms, have also been shown effective in passage or dialogue re-ranking tasks (Nogueira and Cho, 2019; Humeau et al., 2020). Finally, a concurrent work (Khattab and Zaharia, 2020) demonstrates the feasibility of full dense retrieval in IR tasks."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2212.10496",
+      "2212.10496",
+      "2312.10997",
+      "2312.10997",
+      "2004.04906"
+    ],
+    "chunk_ids": [
+      "2212.10496v1::chunk-0001",
+      "2212.10496v1::chunk-0014",
+      "2312.10997v5::chunk-0052",
+      "2312.10997v5::chunk-0024",
+      "2004.04906v3::chunk-0046"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.5k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1374,
+    "output_tokens": 233,
+    "llm_latency_ms": 1321.0922919679433,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1320.9
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1119.3,
+    "total_ms": 2440.9602500963956,
+    "generated_at": "2026-10-26T22:48:20+00:00"
+  },
+  "q10_crag": {
+    "id": "q10_crag",
+    "question": "In Corrective Retrieval Augmented Generation (CRAG), what does the retrieval evaluator do and which actions can it trigger?",
+    "reference": "CRAG uses a lightweight retrieval evaluator to assess the quality of the retrieved documents for a query and return a confidence degree that triggers one of three actions: Correct, Incorrect or Ambiguous. Correct refines the documents into knowledge strips via decompose-then-recompose, Incorrect discards them and falls back to large-scale web search, and Ambiguous combines both sources.",
+    "source_ids": [
+      "2401.15884"
+    ],
+    "response": "In Corrective Retrieval Augmented Generation (CRAG), the retrieval evaluator performs the following function and triggers specific actions:\n\n* **What the retrieval evaluator does:** It assesses the overall quality of the retrieved documents for a given query and returns a confidence degree [2]. It acts as a lightweight evaluator designed to estimate and handle the quality of retrieved knowledge [1].\n* **Actions it can trigger:** Based on the confidence degree returned by the evaluator, it discriminately triggers **three knowledge retrieval actions** [1][2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Corrective Retrieval Augmented Generation | arXiv:2401.15884 | p.10 6 Conclusion & Limitation\nThis paper studies the problem where RAG-based approaches are challenged if retrieval goes wrong, thereby exposing inaccurate and misleading knowledge to generative LMs. Corrective Retrieval Augmented Generation is proposed to improve the robustness of generation. Essentially, a lightweight retrieval evaluator is to estimate and trigger three knowledge retrieval actions discriminately. With the further leverage of web search and optimized knowledge utilization, CRAG has significantly improved the ability of automatic self-correction and efficient utilization of retrieved documents. Experiments extensively demonstrate its adaptability to RAG-based approaches as well as generalizability across short- and long-form generation tasks. While we primarily proposed to improve the RAG framework from a corrective perspective and CRAG can be seamlessly coupled with various RAG-based approaches, fine-tuning an external retrieval evaluator is inevitable. How to eliminate this external evaluator and equip LLMs with better retrieval evaluation capabilities will be our future work.\n\nA Task Prompts",
+      "[2] (corpus) Corrective Retrieval Augmented Generation | arXiv:2401.15884 | p.1 Abstract\nLarge language models (LLMs) inevitably exhibit hallucinations since the accuracy of generated texts cannot be secured solely by the parametric knowledge they encapsulate. Although retrieval-augmented generation (RAG) is a practicable complement to LLMs, it relies heavily on the relevance of retrieved documents, raising concerns about how the model behaves if retrieval goes wrong. To this end, we propose the Corrective Retrieval Augmented Generation (CRAG ) to improve the robustness of generation. Specifically, a lightweight retrieval evaluator is designed to assess the overall quality of retrieved documents for a query, returning a confidence degree based on which different knowledge retrieval actions can be triggered. Since retrieval from static and limited corpora can only return suboptimal documents, large-scale web searches are utilized as an extension for augmenting the retrieval results. Besides, a decompose-thenrecompose algorithm is designed for retrieved documents to selectively focus on key information and filter out irrelevant information in them.",
+      "[3] (corpus) Active Retrieval Augmented Generation | arXiv:2305.06983 | p.3 3 FLARE: Forward-Looking Active\n3 FLARE: Forward-Looking Active\n\nREtrieval Augmented Generation Our intuition is that (1) LMs should only retrieve information when they do not have the necessary knowledge to avoid unnecessary or inappropriate retrieval, and (2) the retrieval queries should reflect the intents of future generations. We propose two forward-looking active retrieval augmented generation (FLARE) methods to implement the active retrieval augmented generation framework. The first method prompts the LM to generate retrieval queries when necessary while generating the answer using retrieval-encouraging instructions, denoted as FLAREinstruct. The second method directly uses the LM’s generation as search queries, denoted as FLAREdirect, which iteratively generates the next sentence to gain insight into the future topic, and if uncertain tokens are present, retrieves relevant documents to regenerate the next sentence.\n\n3.1 FLARE with Retrieval Instructions",
+      "[4] (corpus) Active Retrieval Augmented Generation | arXiv:2305.06983 | p.2 1 Introduction\nCombining the two aspects, we propose Forward- Looking Active REtrieval augmented generation (FLARE), as illustrated in Figure 1. FLARE iteratively generates a temporary next sentence, use it as the query to retrieve relevant documents if it contains low-probability tokens and regenerate the next sentence until reaches the end.",
+      "[5] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.1 Abstract\nDespite their remarkable capabilities, large language models (LLMs) often produce responses containing factual inaccuracies due to their sole reliance on the parametric knowledge they encapsulate. Retrieval-Augmented Generation (RAG), an ad hoc approach that augments LMs with retrieval of relevant knowledge, decreases such issues. However, indiscriminately retrieving and incorporating a fixed number of retrieved passages, regardless of whether retrieval is necessary, or passages are relevant, diminishes LM versatility or can lead to unhelpful response generation. We introduce a new framework called Self-Reflective Retrieval-Augmented Generation (SELF -R AG) that enhances an LM’s quality and factuality through retrieval and self-reflection. Our framework trains a single arbitrary LM that adaptively retrieves passages on-demand, and generates and reflects on retrieved passages and its own generations using special tokens, called reflection tokens."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2401.15884",
+      "2401.15884",
+      "2305.06983",
+      "2305.06983",
+      "2310.11511"
+    ],
+    "chunk_ids": [
+      "2401.15884v3::chunk-0048",
+      "2401.15884v3::chunk-0001",
+      "2305.06983v2::chunk-0016",
+      "2305.06983v2::chunk-0011",
+      "2310.11511v1::chunk-0001"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.1k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1138,
+    "output_tokens": 104,
+    "llm_latency_ms": 903.4823339898139,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 903.4
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1029.7,
+    "total_ms": 1933.4756250027567,
+    "generated_at": "2026-10-26T22:48:27+00:00"
+  },
+  "q11_graphrag": {
+    "id": "q11_graphrag",
+    "question": "Why does conventional RAG fail on global sensemaking questions, and how does GraphRAG answer them?",
+    "reference": "Global questions such as 'What are the main themes in the dataset?' are query-focused summarization tasks over a whole corpus rather than explicit retrieval tasks, so conventional RAG fails on them. GraphRAG uses an LLM to build an entity knowledge graph from the source documents and pre-generate community summaries for groups of related entities; each community summary produces a partial answer and the partial answers are summarized into the final response.",
+    "source_ids": [
+      "2404.16130"
+    ],
+    "response": "Based on the provided sources:\n\n* **Why conventional (vector) RAG fails:** Conventional RAG struggles with global sensemaking questions because it is unable to effectively answer queries that require reasoning over and synthesizing information across an entire data corpus [2]. \n* **How GraphRAG answers them:** GraphRAG addresses global sensemaking questions by utilizing community summaries [1]. For a given question, each community summary is used to generate a partial response, and then all of these partial responses are summarized together to create a final, comprehensive, and diverse response for the user [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) From Local to Global: A Graph RAG Approach to Query-Focused Summarization | arXiv:2404.16130 | p.1 Abstract\nGiven a question, each community summary is used to generate a partial response, before all partial responses are again summarized in a final response to the user. For a class of global sensemaking questions over datasets in the 1 million token range, we show that GraphRAG leads to substantial improvements over a conventional RAG baseline for both the comprehensiveness and diversity of generated answers.",
+      "[2] (corpus) From Local to Global: A Graph RAG Approach to Query-Focused Summarization | arXiv:2404.16130 | p.2 2.1 RAG Approaches and Systems\nWhile some RAG approaches may use alternative retrieval mechanisms, we collectively refer to the family of conventional approaches as vector RAG. GraphRAG contrasts with vector RAG in its ability to answer queries that require global sensemaking over the entire data corpus.",
+      "[3] (corpus) Ragas: Automated Evaluation of Retrieval Augmented Generation | arXiv:2309.15217 | p.5 5 Experiments\nquestion: [question] answer 1: [answer 1] answer 2: [answer 2] The results in Table 1 show that our proposed metrics are much closer aligned with the human judgements than the predictions from the two baselines. For faithfulness, the Ragas prediction are in general highly accurate. For answer relevance, the agreement is lower, but this is largely due to the fact that the differences between the two candidate answers are often very subtle. We found context relevance to be the hardest quality dimension to evaluate. In particular, we observed that ChatGPT often struggles with the task of selecting the sentences from the context that are crucial, especially for longer contexts.\n\n6 Conclusions",
+      "[4] (corpus) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks | arXiv:2005.11401 | p.4 3.2 Abstractive Question Answering\n3.2 Abstractive Question Answering\n\nRAG models can go beyond simple extractive QA and answer questions with free-form, abstractive text generation. To test RAG’s natural language generation (NLG) in a knowledge-intensive setting, we use the MSMARCO NLG task v2.1 [ 43]. The task consists of questions, ten gold passages retrieved from a search engine for each question, and a full sentence answer annotated from the retrieved passages. We do not use the supplied passages, only the questions and answers, to treat\n\nMSMARCO as an open-domain abstractive QA task. MSMARCO has some questions that cannot be answered in a way that matches the reference answer without access to the gold passages, such as “What is the weather in V olcano, CA?” so performance will be lower without using gold passages. We also note that some MSMARCO questions cannot be answered using Wikipedia alone. Here, RAG can rely on parametric knowledge to generate reasonable responses.\n\n3.3 Jeopardy Question Generation",
+      "[5] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.14 A. RAG vs Long Context\nThe entire retrieval and reasoning process is observable, while generation solely relying on long context remains a black box. Conversely, the expansion of context provides new opportunities for the development of RAG, enabling it to address more complex problems and integrative or summary questions that require reading a large amount of material to answer [49]. Developing new RAG methods in the context of super-long contexts is one of the future research trends."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2404.16130",
+      "2404.16130",
+      "2309.15217",
+      "2005.11401",
+      "2312.10997"
+    ],
+    "chunk_ids": [
+      "2404.16130v2::chunk-0002",
+      "2404.16130v2::chunk-0010",
+      "2309.15217v2::chunk-0024",
+      "2005.11401v4::chunk-0019",
+      "2312.10997v5::chunk-0081"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 3.6k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 970,
+    "output_tokens": 118,
+    "llm_latency_ms": 991.0493749193847,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 991.0
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 945.0,
+    "total_ms": 1936.3561670761555,
+    "generated_at": "2026-10-26T22:48:35+00:00"
+  },
+  "q12_lost_middle": {
+    "id": "q12_lost_middle",
+    "question": "What did the Lost in the Middle study find about where relevant information is placed in a long input context?",
+    "reference": "On multi-document question answering and key-value retrieval, performance is often highest when the relevant information appears at the beginning or end of the input context and degrades significantly when it is in the middle, even for explicitly long-context models. This shows current language models do not robustly use information in long input contexts.",
+    "source_ids": [
+      "2307.03172"
+    ],
+    "response": "Based on the \"Lost in the Middle\" study, the placement of relevant information within a long input context significantly impacts language model performance in the following ways:\n\n* **U-Shaped Performance Curve:** Model performance is highest when the relevant information is positioned at the very beginning of the input context (showing a *primacy bias*) or at the very end of the input context (showing a *recency bias*) [1][2].\n* **Degradation in the Middle:** Performance degrades significantly when models have to access and use information located in the middle of their input context [1][2]. \n* **Impact on Accuracy:** For tasks like multidocument question answering, placing the relevant information in the middle can cause performance to drop even lower than if the model attempted the task without any documents at all (closed-book setting) [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Lost in the Middle: How Language Models Use Long Contexts | arXiv:2307.03172 | p.2 1 Introduction\nFurthermore, we observe a distinctive U-shaped performance curve (Figure 1); language model performance is highest when relevant information occurs at the very beginning (primacy bias) or end of its input context (recency bias), and performance significantly degrades when models must access and use information in the middle of their input context (§2.3). For example, when relevant information is placed in the middle of its input context, GPT-3.5-Turbo’s performance on the multidocument question task is lower than its performance when predictingwithout any documents (i.e., the closed-book setting; 56.1%). Furthermore, we find that models often have identical performance to their extended-context counterparts, indicating that extended-context models are not necessarily better at using their input context (§2.3).",
+      "[2] (corpus) Lost in the Middle: How Language Models Use Long Contexts | arXiv:2307.03172 | p.1 1 Introduction\n1st 5th 10th 15th 20th Position of Document with the Answer 75Accuracy 20 T otal Retrieved Documents (~4K tokens) gpt-3.5-turbo-0613 gpt-3.5-turbo-0613 (closed-book) Figure 1: Changing the location of relevant information (in this case, the position of the passage that answers an input question) within the language model’s input context results in a U-shaped performance curve—models are better at using relevant information that occurs at the very beginning (primacy bias) or end of its input context (recency bias), and performance degrades significantly when models must access and use information located in the middle of its input context.",
+      "[3] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.10 E. Adapter\nintroduces an innovative method for integrating knowledge into white-box models via directive fine-tuning [75]. In this approach, the retriever module is directly substituted to generate relevant documents according to a query. This method assists in addressing the difficulties encountered during the fine-tuning process and enhances model performance.\n\nIV. GENERATION\n\nAfter retrieval, it is not a good practice to directly input all the retrieved information to the LLM for answering questions. Following will introduce adjustments from two perspectives: adjusting the retrieved content and adjusting the LLM.\n\nA. Context Curation\n\nRedundant information can interfere with the final generation of LLM, and overly long contexts can also lead LLM to the “Lost in the middle” problem [98]. Like humans, LLM tends to only focus on the beginning and end of long texts, while forgetting the middle portion. Therefore, in the RAG system, we typically need to further process the retrieved content.",
+      "[4] (corpus) Ragas: Automated Evaluation of Retrieval Augmented Generation | arXiv:2309.15217 | p.3 3 Evaluation Strategies\nThis is important given the cost associated with feeding long context passages to LLMs. Moreover, when context passages are too long, LLMs are often less effective in exploiting that context, especially for information that is provided in the middle of the context passage (Liu et al., 2023).",
+      "[5] (corpus) RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval | arXiv:2401.18059 | p.2 2 RELATED WORK\n2 RELATED WORK\n\nWhy Retrieval? Recent advances in hardware and algorithms have indeed expanded the context lengths that models can handle, leading to questions about the need for retrieval systems (Dai et al., 2019; Dao et al., 2022; Liu et al., 2023). However, as Liu et al. (2023) and Sun et al. (2021) have noted, models tend to underutilize long-range context and see diminishing performance as context length increases, especially when pertinent information is embedded within a lengthy context. Moreover, practically, use of long contexts is expensive and slow. This suggests that selecting the most relevant information for knowledge-intensive tasks is still crucial."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2307.03172",
+      "2307.03172",
+      "2312.10997",
+      "2309.15217",
+      "2401.18059"
+    ],
+    "chunk_ids": [
+      "2307.03172v3::chunk-0007",
+      "2307.03172v3::chunk-0003",
+      "2312.10997v5::chunk-0056",
+      "2309.15217v2::chunk-0013",
+      "2401.18059v1::chunk-0007"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 4.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1121,
+    "output_tokens": 174,
+    "llm_latency_ms": 1114.5672919228673,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1114.5
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1660.3,
+    "total_ms": 2775.146333966404,
+    "generated_at": "2026-10-26T22:48:44+00:00"
+  },
+  "q13_dpr": {
+    "id": "q13_dpr",
+    "question": "How is Dense Passage Retrieval trained, and how does it compare with BM25 for open-domain QA?",
+    "reference": "DPR uses a dual-encoder of two independent BERT-base encoders for questions and passages, using the [CLS] representation, and is trained on question-passage pairs with in-batch negatives, where the other passages in a batch serve as negatives. It outperforms a strong Lucene-BM25 system by 9%-19% absolute in top-20 passage retrieval accuracy.",
+    "source_ids": [
+      "2004.04906"
+    ],
+    "response": "Based on the provided sources, here is how Dense Passage Retrieval (DPR) is trained and how it compares to BM25:\n\n### Training of Dense Passage Retrieval (DPR)\n* **Supervised Training:** DPR is trained to discriminate relevant passages from negative passages using pairs of questions and contexts [4]. \n* **Extensions:** Subsequent work like ANCE has further improved DPR by refining the hard negative mining process used during training [4].\n* **Comparison with older dense methods:** Unlike earlier dense retrieval approaches (such as ORQA), which relied on computationally intensive pretraining objectives like the Inverse Cloze Task (ICT) or complex joint training schemes with a reader model, DPR provides a simpler and highly effective supervised training approach [1][2].\n\n### Comparison with BM25\n* **Performance in Open-Domain QA:** Dense retrieval methods (such as differentiable or learned retrievers) generally outperform word overlap-based BM25 retrievers on open-domain QA tasks, where dense retrieval is often crucial for strong performance [1][3].\n* **Specific Task Variations:** While dense retrievers excel in open-domain QA, word overlap methods like BM25 can still perform best on certain specific tasks—for instance, on the FEVER dataset, where claims are heavily entity-centric and well-suited for word overlap [3].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Dense Passage Retrieval for Open-Domain Question Answering | arXiv:2004.04906 | p.9 7 Related Work\nDense retrieval for open-domain QA has been explored by Das et al. (2019), who propose to retrieve relevant passages iteratively using reformulated question vectors. As an alternative approach that skips passage retrieval, Seo et al. (2019) propose to encode candidate answer phrases as vectors and directly retrieve the answers to the input questions efficiently. Using additional pretraining with the objective that matches surrogates of questions and relevant passages, Lee et al. (2019) jointly train the question encoder and reader. Their approach outperforms the BM25 plus reader paradigm on multiple open-domain QA datasets in QA accuracy, and is further extended by REALM (Guu et al., 2020), which includes tuning the passage encoder asynchronously by re-indexing the passages during training. The pretraining objective has also recently been improved by Xiong et al. (2020b). In contrast, our model provides a simple and yet effective solution that shows stronger empirical performance, without relying on additional pretraining or complex joint training schemes.",
+      "[2] (corpus) Dense Passage Retrieval for Open-Domain Question Answering | arXiv:2004.04906 | p.1 1 Introduction\nHowever, it is generally believed that learning a good dense vector representation needs a large number of labeled pairs of question and contexts. Dense retrieval methods have thus never be shown to outperform TF-IDF/BM25 for opendomain QA before ORQA (Lee et al., 2019), which proposes a sophisticated inverse cloze task (ICT) objective, predicting the blocks that contain the masked sentence, for additional pretraining. The question encoder and the reader model are then finetuned using pairs of questions and answers jointly. Although ORQA successfully demonstrates that dense retrieval can outperform BM25, setting new state-of-the-art results on multiple open-domain arXiv:2004.04906v3 [cs.CL] 30 Sep 2020\n\nQA datasets, it also suffers from two weaknesses. First, ICT pretraining is computationally intensive and it is not completely clear that regular sentences are good surrogates of questions in the objective function. Second, because the context encoder is not fine-tuned using pairs of questions and answers, the corresponding representations could be suboptimal.",
+      "[3] (corpus) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks | arXiv:2005.11401 | p.7 4.5 Additional Results\nRetrieval Ablations A key feature of RAG is learning to retrieve relevant information for the task. To assess the effectiveness of the retrieval mechanism, we run ablations where we freeze the retriever during training. As shown in Table 6, learned retrieval improves results for all tasks. We compare RAG’s dense retriever to a word overlap-based BM25 retriever [53]. Here, we replace RAG’s retriever with a fixed BM25 system, and use BM25 retrieval scores as logits when calculating p(z|x). Table 6 shows the results. For FEVER, BM25 performs best, perhaps since FEVER claims are heavily entity-centric and thus well-suited for word overlap-based retrieval. Differentiable retrieval improves results on all other tasks, especially for Open-Domain QA, where it is crucial. Index hot-swapping An advantage of non-parametric memory models like RAG is that knowledge can be easily updated at test time. Parametric-only models like T5 or BART need further training to update their behavior as the world changes.",
+      "[4] (corpus) Atlas: Few-shot Learning with Retrieval Augmented Language Models | arXiv:2208.03299 | p.7 3.1 Retrieval in natural language processing\nPopular supervised retrievers include DPR (Karpukhin et al., 2020), which is trained to discriminate the relevant passage among negative passages, and extensions such as ANCE (Xiong et al., 2020) which improved the hard negatives mining process. We refer the reader to Yates et al. (2021) for a survey of dense retrieval techniques. After retrieval, the relevant documents are processed to produce the final output. In open-domain QA, models can extract a span of text from retrieved documents as the answer (Chen et al., 2017; Clark & Gardner, 2018; Wang et al., 2019; Karpukhin et al., 2020), a method inspired by reading comprehension (Richardson, 2013; Rajpurkar et al., 2016). Recently, generating the answer as free-form text, using a seq2seq model conditioned on retrieved documents have become prevalent (Lewis et al., 2020; Izacard & Grave, 2020; Min et al., 2020). These architectures have also been shown to reduce hallucination in dialogue agents (Shuster et al., 2021). Retriever training.",
+      "[5] (corpus) Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions | arXiv:2212.10509 | p.3 2 Related Work\nPrior work has explored iterative retrieval for open-domain QA in a fully supervised setting. Das et al. (2019) proposes an iterative retrieval model that retrieves using a neural query representation and then updates it based on a reading comprehension model’s output. Feldman and El-Yaniv (2019) apply similar neural query reformulation idea for multihop open-domain QA. Xiong et al. (2021) extends the widely-used Dense Passage Retrieval (DPR) (Karpukhin et al., 2020) to multihop setting, which has since been improved by Khattab et al. (2021). Asai et al. (2020) leverages the graph structure induced by the entity links present in Wikipedia paragraphs to perform iterative multi-step retrieval. GoldEn (Gold Entity) retriever (Qi et al., 2019) iteratively generates text queries based on paragraphs retrieved from an off-the-shelf retriever but requires training data for this next query generator. Nakano et al. (2021) used GPT3 to answer long-form questions by interacting with the browser but relied on human annotations of these interactions."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2004.04906",
+      "2004.04906",
+      "2005.11401",
+      "2208.03299",
+      "2212.10509"
+    ],
+    "chunk_ids": [
+      "2004.04906v3::chunk-0048",
+      "2004.04906v3::chunk-0004",
+      "2005.11401v4::chunk-0035",
+      "2208.03299v3::chunk-0029",
+      "2212.10509v2::chunk-0013"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 6.0k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1587,
+    "output_tokens": 275,
+    "llm_latency_ms": 1867.482665926218,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1867.4
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1116.3,
+    "total_ms": 2984.1190001461655,
+    "generated_at": "2026-10-26T22:48:53+00:00"
+  },
+  "q14_tot": {
+    "id": "q14_tot",
+    "question": "How does Tree of Thoughts generalize chain-of-thought prompting, and how did it perform on the Game of 24?",
+    "reference": "Tree of Thoughts lets a language model explore coherent units of text ('thoughts') as intermediate steps, considering multiple reasoning paths, self-evaluating choices and looking ahead or backtracking with search algorithms such as breadth-first or depth-first search. On Game of 24, GPT-4 with chain-of-thought prompting solved 4% of tasks while ToT achieved a 74% success rate.",
+    "source_ids": [
+      "2305.10601"
+    ],
+    "response": "Based on the provided sources, here is how Tree of Thoughts (ToT) relates to chain-of-thought prompting and its performance on the Game of 24:\n\n* **Generalization of Chain-of-Thought:** While traditional chain-of-thought (CoT) prompting prompts language models to generate a linear sequence of intermediate reasoning steps to derive a final answer [5], Tree of Thoughts generalizes this by allowing exploration over a *tree* of thoughts [2]. This framework enables models to perform deliberate problem-solving, planning, and search through intermediate thoughts (such as breaking down equations or evaluating candidates using breadth-first search) [1][2].\n* **Performance on the Game of 24:** ToT significantly outperformed standard methods on the Game of 24 [1]. While GPT-4 using conventional chain-of-thought prompting solved only 4% of the tasks, the Tree of Thoughts method achieved a success rate of 74% [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Tree of Thoughts: Deliberate Problem Solving with Large Language Models | arXiv:2305.10601 | p.1 Abstract\nOur experiments show that ToT significantly enhances language models’ problem-solving abilities on three novel tasks requiring non-trivial planning or search: Game of 24, Creative Writing, and Mini Crosswords. For instance, in Game of 24, while GPT-4 with chain-of-thought prompting only solved 4% of tasks, our method achieved a success rate of 74%. Code repo with all prompts: https://github.com/princeton-nlp/tree-of-thought-llm .",
+      "[2] (corpus) Tree of Thoughts: Deliberate Problem Solving with Large Language Models | arXiv:2305.10601 | p.5 4 Experiments\nAt each iteration, the LM is conditioned on all previous history to “reflect on your mistakes and generate a refined answer” if the output is incorrect. Note that it uses groundtruth feedback signals about equation correctness. ToT Setup. To frame Game of 24 into ToT, it is natural to decompose the thoughts into 3 steps, each an intermediate equation. As shown in Figure 2(a), at each tree node, we exact the remaining numbers and prompt the LM to propose some possible next steps. The same “propose prompt” is used for all 3 thought steps, though it only has one example with 4 input numbers. We perform a breadth-first search (BFS) in ToT, where at each step we keep the best b = 5candidates. To perform deliberate BFS in ToT, as shown in Figure 2(b), we prompt LM to evaluate each thought candidate as “sure/maybe/impossible” with regard to reaching 24. The aim is to promote correct partial solutions that can be verdicted within few lookahead trials, and eliminate impossible partial solutions based on “too big/small” commonsense, and keep the rest “maybe”.",
+      "[3] (corpus) Chain-of-Thought Prompting Elicits Reasoning in Large Language Models | arXiv:2201.11903 | p.8 5 Symbolic Reasoning\nNote that these in-domain evaluations are “toy tasks” in the sense that perfect solution structures are already provided by the chains of thought in the few-shot exemplars; all the model has to do is repeat the same steps with the new symbols in the test-time example. And yet, small models still fail—the ability to perform abstract manipulations on unseen symbols for these three tasks only arises at the scale of 100B model parameters. As for the OOD evaluations, standard prompting fails for both tasks. With chain-of-thought prompting, language models achieve upward scaling curves (though performance is lower than in the in-domain setting). Hence, chain-of-thought prompting facilitates length generalization beyond seen chains of thought for language models of sufficient scale.",
+      "[4] (corpus) Chain-of-Thought Prompting Elicits Reasoning in Large Language Models | arXiv:2201.11903 | p.6 3.4 Robustness of Chain of Thought\nTo confirm that successful chain-of-thought prompting works for other sets of exemplars, we also run experiments with three sets of eight exemplars randomly sampled from the GSM8K training set, an independent 1For instance, whereas original chain of thought uses several short sentences ( “’There were originally 9 computers. For each of 4 days, 5 more computers were added. So 5 * 4 = 20 computers were added. 9 + 20 is 29. ”), the concise chain of thought would read “5 * 4 = 20 new computers were added. So there are 9 + 20 = 29 new computers in the server room now”.\n\nsource (examples in this dataset already included reasoning steps like a chain of thought). 2 Figure 6 shows that these prompts performed comparably with our manually written exemplars, also substantially outperforming standard prompting.",
+      "[5] (corpus) Tool Learning with Foundation Models | arXiv:2304.08354 | p.14 3.2.2 Planning with Reasoning\nTo address this issue, Wei et al. (2022c) propose Chain-of-Thought (CoT) prompting. Unlike vanilla few-shot prompt learning, CoT additionally inserts the reasoning trace required to derive the final answer for each example in the prompt. In this way, CoT prompts models to generate their “thoughts” on the necessary intermediate steps before arriving at the final answer. CoT has been proven to significantly boost performance on a wide range of tasks, including arithmetic reasoning, commonsense reasoning, and symbolic reasoning (Wei et al., 2022c)."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2305.10601",
+      "2305.10601",
+      "2201.11903",
+      "2201.11903",
+      "2304.08354"
+    ],
+    "chunk_ids": [
+      "2305.10601v2::chunk-0002",
+      "2305.10601v2::chunk-0026",
+      "2201.11903v6::chunk-0040",
+      "2201.11903v6::chunk-0030",
+      "2304.08354v3::chunk-0079"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 4.4k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1227,
+    "output_tokens": 201,
+    "llm_latency_ms": 1343.035750091076,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1342.9
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1046.7,
+    "total_ms": 2390.1587079744786,
+    "generated_at": "2026-10-26T22:49:02+00:00"
+  },
+  "q15_ragas": {
+    "id": "q15_ragas",
+    "question": "What quality aspects does the Ragas framework measure for retrieval-augmented generation, and how is faithfulness estimated?",
+    "reference": "Ragas is a reference-free framework that measures faithfulness, answer relevance and context relevance of RAG pipelines. Faithfulness is estimated by using an LLM to extract statements from the answer and then checking which of them can be inferred from the retrieved context; the score is the fraction of supported statements.",
+    "source_ids": [
+      "2309.15217"
+    ],
+    "response": "Based on the provided sources, here are the quality aspects measured by the Ragas framework and how faithfulness is understood:\n\n### Quality Aspects Measured by Ragas\nThe Ragas framework evaluates retrieval-augmented generation (RAG) pipelines across three primary quality aspects (without relying on ground truth human annotations) [1][2][3]:\n1. **Context Relevance:** Evaluates whether the retrieved context is sufficiently focused, precise, and specific to minimize processing costs from extraneous content [1][3].\n2. **Answer Faithfulness:** Ensures that the generated answer is grounded in and true to the retrieved context, maintaining consistency and avoiding contradictions [1][3].\n3. **Answer Relevance:** Evaluates whether the generated answer directly addresses the posed question and is pertinent to the core inquiry [1][3].\n\n### Estimation of Faithfulness\n* **Definition:** Faithfulness measures whether the generated answer is strictly grounded in the retrieved context [3].\n* **Estimation Mechanism:** The framework assesses faithfulness to ensure the output remains true to the retrieved context, maintaining internal consistency and preventing hallucinations or contradictions [1][3].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.12 C. Evaluation Aspects\nC. Evaluation Aspects\n\nContemporary evaluation practices of RAG models emphasize three primary quality scores and four essential abilities, which collectively inform the evaluation of the two principal targets of the RAG model: retrieval and generation. 1) Quality Scores: Quality scores include context relevance, answer faithfulness, and answer relevance. These quality scores evaluate the efficiency of the RAG model from different perspectives in the process of information retrieval and generation [164]–[166].\n\nContext Relevance evaluates the precision and specificity of the retrieved context, ensuring relevance and minimizing processing costs associated with extraneous content. Answer Faithfulness ensures that the generated answers remain true to the retrieved context, maintaining consistency and avoiding contradictions.\n\nAnswer Relevance requires that the generated answers are directly pertinent to the posed questions, effectively addressing the core inquiry.",
+      "[2] (corpus) Ragas: Automated Evaluation of Retrieval Augmented Generation | arXiv:2309.15217 | p.1 Abstract\nAbstract\n\nWe introduce Ragas (Retrieval Augmented Generation Assessment), a framework for reference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval and an LLM based generation module, and provide LLMs with knowledge from a reference textual database, which enables them to act as a natural language layer between a user and textual databases, reducing the risk of hallucinations. Evaluating RAG architectures is, however, challenging because there are several dimensions to consider: the ability of the retrieval system to identify relevant and focused context passages, the ability of the LLM to exploit such passages in a faithful way, or the quality of the generation itself. With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions without having to rely on ground truth human annotations. We posit that such a framework can crucially contribute to faster evaluation cycles of RAG architectures, which is especially important given the fast adoption of LLMs.\n\n1 Introduction",
+      "[3] (corpus) Ragas: Automated Evaluation of Retrieval Augmented Generation | arXiv:2309.15217 | p.5 6 Conclusions\n6 Conclusions\n\nWe have highlighted the need for automated reference-free evaluation of RAG systems. In particular, we have argued the need for an evaluation framework that can assess faithfulness (i.e. is the answer grounded in the retrieved context), answer relevance (i.e. does the answer address the question) and context relevance (i.e. is the retrieved context sufficiently focused). To support the development of such a framework, we have introduced WikiEval, a dataset which human judgements of these three different aspects. Finally, we have also described Ragas, our implementation of the three considered quality aspects. This framework is easy to use and can provide deverlopers of RAG systems with valuable insights, even in the absence of any ground truth. Our evaluation on WikiEval has shown that the predictions from Ragas are closely aligned with human predictions, especially for faithfulness and answer relevance.\n\nA Examples from WikiEval",
+      "[4] (corpus) Retrieval-Augmented Generation for Large Language Models: A Survey | arXiv:2312.10997 | p.15 C. Hybrid Approaches\nTABLE IV SUMMARY OF EVALUATION FRAMEWORKS Evaluation Framework Evaluation Targets Evaluation Aspects Quantitative Metrics RGB† Retrieval QualityGeneration Quality Noise Robustness Negative Rejection Information Integration Counterfactual Robustness Accuracy EM Accuracy Accuracy RECALL† Generation Quality Counterfactual Robustness R-Rate (Reappearance Rate) RAGAS‡ Retrieval QualityGeneration Quality Context RelevanceFaithfulnessAnswer Relevance **Cosine Similarity ARES‡ Retrieval QualityGeneration Quality Context RelevanceFaithfulnessAnswer Relevance AccuracyAccuracyAccuracy TruLens‡ Retrieval QualityGeneration Quality Context RelevanceFaithfulnessAnswer Relevance *** CRUD† Retrieval QualityGeneration Quality Creative Generation Knowledge-intensive QA Error Correction Summarization BLEU ROUGE-L BertScore RAGQuestEval † represents a benchmark, and ‡ represents a tool. * denotes customized quantitative metrics, which deviate from traditional metrics.",
+      "[5] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.3 3 SELF -RAG: LEARNING TO RETRIEVE , GENERATE AND CRITIQUE\n3 SELF -RAG: LEARNING TO RETRIEVE , GENERATE AND CRITIQUE\n\nWe introduce Self-Reflective Retrieval-Augmented Generation ( SELF -RAG), shown in Figure 1. SELF -R AG is a framework that enhances the quality and factuality of an LLM through retrieval and self-reflection, without sacrificing LLM’s original creativity and versatility. Our end-to-end training lets an LM M generate text informed by retrieved passages, if needed, and criticize the output by learning to generate special tokens. These reflection tokens (Table 1) signal the need for retrieval or confirm the output’s relevance, support, or completeness. In contrast, common RAG approaches retrieve passages indiscriminately, without ensuring complete support from cited sources.\n\n3.1 PROBLEM FORMALIZATION AND OVERVIEW"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2312.10997",
+      "2309.15217",
+      "2309.15217",
+      "2312.10997",
+      "2310.11511"
+    ],
+    "chunk_ids": [
+      "2312.10997v5::chunk-0072",
+      "2309.15217v2::chunk-0001",
+      "2309.15217v2::chunk-0025",
+      "2312.10997v5::chunk-0084",
+      "2310.11511v1::chunk-0017"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": null,
+    "forced_provider_honored": true,
+    "route_reason": "hybrid: simple lookup, context 5.6k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite",
+    "input_tokens": 1274,
+    "output_tokens": 225,
+    "llm_latency_ms": 1390.3926669154316,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1390.3
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 797.2,
+    "total_ms": 2187.932207947597,
+    "generated_at": "2026-10-26T22:49:10+00:00"
+  }
+}

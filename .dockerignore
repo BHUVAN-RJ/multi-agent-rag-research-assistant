@@ -1,0 +1,24 @@
+# Docker build context filter. Secrets and the raw corpus never enter the image.
+# chroma_index/ and data/papers.db are NOT ignored: they are baked into the image.
+.env
+.env.*
+!.env.example
+.git/
+.gitignore
+.venv/
+.venv-eval/
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+tests/
+*.pdf
+data/corpus/
+docs/
+deploy.sh
+.gcloudignore
+.dockerignore

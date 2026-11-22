@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-27T00:22:49+00:00",
+  "ragas_version": "0.4.3",
+  "label": "nvidia",
+  "forced_provider": "nvidia",
+  "judge": {
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "strictness": 3
+  },
+  "embeddings": "chromadb DefaultEmbeddingFunction (ONNX all-MiniLM-L6-v2, local)",
+  "n_questions": 5,
+  "aggregates": {
+    "faithfulness": {
+      "mean": 0.8227450980392156,
+      "n": 5,
+      "missing": 0
+    },
+    "answer_relevancy": {
+      "mean": 0.8436565967886361,
+      "n": 3,
+      "missing": 2
+    },
+    "llm_context_precision_with_reference": {
+      "mean": 0.551111111066074,
+      "n": 5,
+      "missing": 0
+    },
+    "context_recall": {
+      "mean": 0.45999999999999996,
+      "n": 5,
+      "missing": 0
+    }
+  },
+  "generation_stats": {
+    "n_records": 5,
+    "n_ok": 5,
+    "n_failed": 0,
+    "median_llm_latency_ms": 3106.183791998774,
+    "median_retrieval_ms": 1777.0,
+    "mean_input_tokens": 1343.8,
+    "mean_output_tokens": 209.4,
+    "mean_list_price_cost_usd": null,
+    "actual_cost_usd": 0.0,
+    "prices_checked_on": "2026-10-25",
+    "provider_models_used": {
+      "nvidia/nvidia/nemotron-3.5-lightning-30b-a3b": 5
+    },
+    "forced_provider_not_honored": []
+  },
+  "per_question": [
+    {
+      "id": "q01_react",
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "generated_at": "2026-10-27T00:05:54+00:00",
+      "scored_at": "2026-10-27T00:09:22+00:00",
+      "judge_seconds": 158.0,
+      "scores": {
+        "faithfulness": 0.4666666666666667,
+        "answer_relevancy": 0.7565300451516089,
+        "llm_context_precision_with_reference": 0.0,
+        "context_recall": 0.8
+      }
+    },
+    {
+      "id": "q02_reflexion",
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "generated_at": "2026-10-27T00:06:12+00:00",
+      "scored_at": "2026-10-27T00:13:03+00:00",
+      "judge_seconds": 220.9,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": null,
+        "llm_context_precision_with_reference": 0.9999999999,
+        "context_recall": 0.5
+      }
+    },
+    {
+      "id": "q03_toolformer",
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "generated_at": "2026-10-27T00:06:21+00:00",
+      "scored_at": "2026-10-27T00:17:45+00:00",
+      "judge_seconds": 282.7,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": null,
+        "llm_context_precision_with_reference": 0.9999999999,
+        "context_recall": 0.0
+      }
+    },
+    {
+      "id": "q04_autogen",
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "generated_at": "2026-10-27T00:06:32+00:00",
+      "scored_at": "2026-10-27T00:20:07+00:00",
+      "judge_seconds": 142.0,
+      "scores": {
+        "faithfulness": 0.7647058823529411,
+        "answer_relevancy": 0.878580496788114,
+        "llm_context_precision_with_reference": 0.0,
+        "context_recall": 0.5
+      }
+    },
+    {
+      "id": "q05_metagpt",
+      "provider": "nvidia",
+      "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "generated_at": "2026-10-27T00:06:42+00:00",
+      "scored_at": "2026-10-27T00:22:49+00:00",
+      "judge_seconds": 161.4,
+      "scores": {
+        "faithfulness": 0.8823529411764706,
+        "answer_relevancy": 0.8958592484261855,
+        "llm_context_precision_with_reference": 0.7555555555303703,
+        "context_recall": 0.5
+      }
+    }
+  ]
+}

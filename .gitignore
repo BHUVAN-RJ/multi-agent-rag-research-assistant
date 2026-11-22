@@ -1,0 +1,11 @@
+.env
+.venv/
+.venv-eval/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+# Generated artifacts: rebuilt by scripts, excluded from source archive
+chroma_index/
+data/corpus/
+data/papers.db

@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-27T00:38:53+00:00",
+  "ragas_version": "0.4.3",
+  "label": "gemini",
+  "forced_provider": "gemini",
+  "judge": {
+    "provider": "nvidia",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b",
+    "strictness": 3
+  },
+  "embeddings": "chromadb DefaultEmbeddingFunction (ONNX all-MiniLM-L6-v2, local)",
+  "n_questions": 5,
+  "aggregates": {
+    "faithfulness": {
+      "mean": 0.9764705882352942,
+      "n": 5,
+      "missing": 0
+    },
+    "answer_relevancy": {
+      "mean": 0.8557242742430977,
+      "n": 4,
+      "missing": 1
+    },
+    "llm_context_precision_with_reference": {
+      "mean": 0.551111111066074,
+      "n": 5,
+      "missing": 0
+    },
+    "context_recall": {
+      "mean": 0.42666666666666664,
+      "n": 5,
+      "missing": 0
+    }
+  },
+  "generation_stats": {
+    "n_records": 5,
+    "n_ok": 5,
+    "n_failed": 0,
+    "median_llm_latency_ms": 1326.004333095625,
+    "median_retrieval_ms": 1293.3,
+    "mean_input_tokens": 1309.6,
+    "mean_output_tokens": 188.2,
+    "mean_list_price_cost_usd": 0.0008633800000000001,
+    "actual_cost_usd": 0.0,
+    "prices_checked_on": "2026-10-25",
+    "provider_models_used": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "forced_provider_not_honored": []
+  },
+  "per_question": [
+    {
+      "id": "q01_react",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "generated_at": "2026-10-27T00:22:53+00:00",
+      "scored_at": "2026-10-27T00:25:24+00:00",
+      "judge_seconds": 115.7,
+      "scores": {
+        "faithfulness": 0.8823529411764706,
+        "answer_relevancy": 0.822070373625844,
+        "llm_context_precision_with_reference": 0.0,
+        "context_recall": 0.8
+      }
+    },
+    {
+      "id": "q02_reflexion",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "generated_at": "2026-10-27T00:23:02+00:00",
+      "scored_at": "2026-10-27T00:27:20+00:00",
+      "judge_seconds": 116.3,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.9741526556739076,
+        "llm_context_precision_with_reference": 0.9999999999,
+        "context_recall": 0.5
+      }
+    },
+    {
+      "id": "q03_toolformer",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "generated_at": "2026-10-27T00:23:10+00:00",
+      "scored_at": "2026-10-27T00:31:19+00:00",
+      "judge_seconds": 238.9,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.8452686392777631,
+        "llm_context_precision_with_reference": 0.9999999999,
+        "context_recall": 0.0
+      }
+    },
+    {
+      "id": "q04_autogen",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "generated_at": "2026-10-27T00:23:19+00:00",
+      "scored_at": "2026-10-27T00:34:26+00:00",
+      "judge_seconds": 186.4,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.781405428394876,
+        "llm_context_precision_with_reference": 0.0,
+        "context_recall": 0.3333333333333333
+      }
+    },
+    {
+      "id": "q05_metagpt",
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "generated_at": "2026-10-27T00:23:27+00:00",
+      "scored_at": "2026-10-27T00:38:53+00:00",
+      "judge_seconds": 266.9,
+      "scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": null,
+        "llm_context_precision_with_reference": 0.7555555555303703,
+        "context_recall": 0.5
+      }
+    }
+  ]
+}

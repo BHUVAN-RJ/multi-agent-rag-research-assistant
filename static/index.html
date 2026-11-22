@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Research Assistant</title>
+<meta name="description" content="LangGraph supervisor multi-agent RAG over arXiv papers on LLM agents, multi-agent systems and RAG.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232c5fa8'/%3E%3Ccircle cx='10' cy='11' r='3.2' fill='white'/%3E%3Ccircle cx='22' cy='11' r='3.2' fill='white'/%3E%3Ccircle cx='16' cy='22' r='3.2' fill='white'/%3E%3Cpath d='M10 11L16 22L22 11' stroke='white' stroke-width='1.8' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="header-inner">
+    <div>
+      <h1>Agentic Research Assistant</h1>
+      <p class="subtitle">Supervisor multi-agent RAG over arXiv papers on LLM agents, multi-agent systems and retrieval.</p>
+    </div>
+    <div class="header-actions">
+      <span class="session-label" title="Request tag only: each question is answered independently (no conversation memory); this id labels your requests in the server traces">session <code id="session-id">-</code></span>
+      <button type="button" id="reset-button" class="secondary-button">Reset</button>
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="chat-column" aria-label="Conversation">
+    <div id="turns" class="turns" aria-live="polite">
+      <div id="empty-state" class="empty-state">
+        <h2>Ask about the corpus, the live web, or the paper database</h2>
+        <p>The supervisor routes each question to research, web, data or summary agents. Each answer shows which agents ran, which model served every LLM call and why, and the sources it cites.</p>
+        <div class="example-chips" id="example-chips">
+          <button type="button" class="example-chip" data-query="How does ReAct interleave reasoning and acting?"><span class="chip-kind">RAG</span>How does ReAct interleave reasoning and acting?</button>
+          <button type="button" class="example-chip" data-query="What are the latest developments in AI agents this week?"><span class="chip-kind">Live web</span>What are the latest developments in AI agents this week?</button>
+          <button type="button" class="example-chip" data-query="How many RAG papers were published per year since 2020?"><span class="chip-kind">Data</span>How many RAG papers were published per year since 2020?</button>
+          <button type="button" class="example-chip" data-query="Summarize the key ideas of Self-RAG"><span class="chip-kind">Summary</span>Summarize the key ideas of Self-RAG</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="chat-form" class="composer" autocomplete="off">
+      <label for="query-input" class="visually-hidden">Your question</label>
+      <textarea id="query-input" name="query" rows="1" maxlength="4000" placeholder="Ask a question (Enter to send, Shift+Enter for a new line)" required></textarea>
+      <button type="submit" id="submit-button" class="primary-button">Send</button>
+    </form>
+  </section>
+
+  <aside class="side-column" aria-label="Diagnostics">
+    <section class="panel">
+      <h2 class="panel-title">Examples</h2>
+      <div class="example-list" id="example-list">
+        <button type="button" class="example-row" data-query="How does ReAct interleave reasoning and acting?"><b>RAG</b>How does ReAct interleave reasoning and acting?</button>
+        <button type="button" class="example-row" data-query="What are the latest developments in AI agents this week?"><b>Live web</b>What are the latest developments in AI agents this week?</button>
+        <button type="button" class="example-row" data-query="How many RAG papers were published per year since 2020?"><b>Data</b>How many RAG papers were published per year since 2020?</button>
+        <button type="button" class="example-row" data-query="Summarize the key ideas of Self-RAG"><b>Summary</b>Summarize the key ideas of Self-RAG</button>
+      </div>
+    </section>
+
+    <details class="panel trace-panel" id="trace-panel" open>
+      <summary class="panel-title">Raw trace log <span class="trace-count" id="trace-count">0</span></summary>
+      <div class="trace-toolbar">
+        <button type="button" id="clear-trace-button" class="link-button">Clear</button>
+      </div>
+      <ol id="trace-log" class="trace-log"></ol>
+    </details>
+
+    <section class="panel legend-panel">
+      <h2 class="panel-title">Trace kinds</h2>
+      <div class="legend">
+        <span class="badge kind-agent_route">agent_route</span>
+        <span class="badge kind-llm_route">llm_route</span>
+        <span class="badge kind-llm_fallback">llm_fallback</span>
+        <span class="badge kind-llm_result">llm_result</span>
+        <span class="badge kind-rag_retrieval">rag_retrieval</span>
+        <span class="badge kind-mcp_tool_call">mcp_tool_call</span>
+        <span class="badge kind-data_query">data_query</span>
+        <span class="badge kind-agent_result">agent_result</span>
+        <span class="badge kind-error">error</span>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+{
+  "q01_react": {
+    "id": "q01_react",
+    "question": "How does ReAct combine reasoning and acting in language models, and what does the interleaving buy on HotpotQA and Fever?",
+    "reference": "ReAct prompts an LLM to generate reasoning traces and task-specific actions in an interleaved manner: reasoning helps the model induce, track and update action plans and handle exceptions, while actions let it gather information from external sources such as a Wikipedia API. On HotpotQA and Fever this interaction overcomes hallucination and error propagation seen in chain-of-thought reasoning and yields more interpretable, human-like trajectories.",
+    "source_ids": [
+      "2210.03629"
+    ],
+    "response": "**How ReAct Combines Reasoning and Acting:**\n* ReAct is a technique for language models that interleaves reasoning traces (such as step-by-step explicit thinking) and actions (such as interacting with external environments or APIs like Wikipedia) [3][4][5]. \n* This interleaving creates a synergy between the two modalities: reasoning helps models guide their actions, formulate plans, and handle exceptions, while actions allow models to gather additional external information to ground their reasoning [1][3].\n\n**What Interleaving Buys on HotpotQA and Fever:**\n* **Outperforms Action-only (Act) methods:** ReAct consistently outperforms Act on both HotpotQA and FEVER tasks when using PaLM-540B as a base model [1].\n* **Value of Reasoning Traces:** The reasoning traces guide more informed acting and help synthesize the final answer accurately [1]. \n* **Combining Internal and External Knowledge:** Interleaving allows models to properly combine their internal parametric knowledge with external knowledge retrieved from Wikipedia, improving performance on knowledge-intensive reasoning tasks [2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) ReAct: Synergizing Reasoning and Acting in Language Models | arXiv:2210.03629 | p.5 3.3 RESULTS AND OBSERVATIONS\n3.3 RESULTS AND OBSERVATIONS\n\nReAct outperforms Act consistently Table 1 shows HotpotQA and Fever results using PaLM- 540B as the base model with different prompting methods. We note that ReAct is better than Act on both tasks, demonstrating the value of reasoning to guide acting, especially for synthesizing the final answer, as shown in Figure 1 (1c-d). Fine-tuning results 3 also confirm the benefit of reasoning traces for more informed acting. 3Of all trajectories with correct final answers, those with 7 steps on HotpotQA and 5 steps on FEVER only take up 0.84% and 1.33% respectively.",
+      "[2] (corpus) ReAct: Synergizing Reasoning and Acting in Language Models | arXiv:2210.03629 | p.6 3.3 RESULTS AND OBSERVATIONS\nThese results indicate the value of properly combining model internal knowledge and external knowledge for reasoning tasks. ReAct performs best for fine-tuning Figure 3 shows the scaling effect of prompting/finetuning four methods (Standard, CoT, Act, ReAct) on HotpotQA. With PaLM-8/62B, promptingReAct performs worst among four methods due to the difficulty to learn both reasoning and acting from in-context examples. However, when finetuned with just 3,000 examples, ReAct becomes the best method among the four, with PaLM-8B finetuned ReAct outperforming all PaLM-62B prompting methods, and PaLM-62B finetuned ReAct outperforming all 540B prompting methods. In contrast, finetuning Standard or CoT is significantly worse than finetuning ReAct or Act for both PaLM- 8/62B, as the former essentially teaches models to memorize (potentially halluincated) knowledge facts, and the latter teaches models how to (reason and) act to access information from Wikipedia, a more generalizable skill for knowledge reasoning.",
+      "[3] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.24 D Application Details\nWe compare our system’s performance with ReAct, which treats ALFWorld as a text-completion task. ReAct (Yao et al., 2022) is a few-shot prompting technique that interleaves reasoning and acting, allowing for greater synergy between the two and significantly improving performance on both language and decision-making tasks. We integrate ReAct into AutoGen by modifying the prompts in a conversational manner. Following ReAct, we employ a two-shot setting. The fewshot prompts are obtained from the corresponding repository. As shown in Table 3, the two-agent\n\nTask description You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a safe 1, a drawer 2, a dra wer 1, a shelf 3, a shelf 2, and a shelf 1.",
+      "[4] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.6 4.2 Reasoning: HotpotQA\n4.2 Reasoning: HotpotQA\n\nHotPotQA [28] is a Wikipedia-based dataset with 113k question-and-answer pairs that challenge agents to parse content and reason over several supporting documents. To test improvement in reasoning only ability, we implement Reflexion + Chain-of-Thought (CoT) [ 26] for step-by-step Q → A and Q, Cgt → A implementations, where Q is the question, Cgt is the ground truth context from the dataset, and A is the final answer. Since CoT is not a multi-step decision-making technique, we give Cgt to the agent so that we can isolate the reasoning behavior over large sections of the provided text. To test holistic question and answering ability, which requires reasoning and action choice, we implement a Reflexion + ReAct [ 30] agent that can retrieve relevant context using a Wikipedia API and infer answers using step-by-step explicit thinking. For CoT implementations, we use 6-shot prompting; for ReAct, we use 2-shot prompting, and for self-reflection, we use 2-shot prompting. All examples can be found in the appendix.",
+      "[5] (corpus) AgentBench: Evaluating LLMs as Agents | arXiv:2308.03688 | p.9 5 RELATEDWORK\nLLM-as-Agent.In pre-LLM era, text game environments such as TextWorld (Côté et al., 2019), Jericho (Hausknecht et al., 2020), and LIGHT (Urbanek et al., 2019) are dominant in language agent study which bases on BERT (Devlin et al., 2019) and reinforcement learning. With the advent of LLMs, the study of LLM agents begins to thrive (Huang et al., 2022), especially after Chain-of-Thought (Wei et al., 2022b) came out. ReAct (Yao et al., 2023b) is a pioneer work to combine CoT reasoning and actions in agent tasks. Later, a multitude of advanced reasoning strategies (Kim et al., 2023; Shinn et al., 2023; Wang et al., 2023d; Liu et al., 2023; Yao et al., 2023a; Gu et al., 2023) and applications including frameworks (Richards, 2023; Nakajima, 2023; age, 2023) and multi-agents (Park et al., 2023; Hong et al., 2023; Wu et al., 2023) for LLM-as-Agent have emerged and arouse much public interest. Nevertheless, limited datasets and models and available on the topic, without a standard and comprehensive benchmark."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2210.03629",
+      "2210.03629",
+      "2308.08155",
+      "2303.11366",
+      "2308.03688"
+    ],
+    "chunk_ids": [
+      "2210.03629v3::chunk-0030",
+      "2210.03629v3::chunk-0035",
+      "2308.08155v2::chunk-0109",
+      "2303.11366v4::chunk-0027",
+      "2308.03688v3::chunk-0050"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": "gemini",
+    "forced_provider_honored": true,
+    "route_reason": "override: ROUTER_FORCE_PROVIDER=gemini (policy would say: hybrid: simple lookup, context 5.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite)",
+    "input_tokens": 1570,
+    "output_tokens": 225,
+    "llm_latency_ms": 1515.0310001336038,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1515.0
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1761.3,
+    "total_ms": 3398.1611661147326,
+    "generated_at": "2026-10-27T00:22:53+00:00"
+  },
+  "q02_reflexion": {
+    "id": "q02_reflexion",
+    "question": "What are the three models in the Reflexion framework and how does Reflexion improve an agent without updating its weights?",
+    "reference": "Reflexion uses an Actor that generates text and actions, an Evaluator that scores the Actor's outputs, and a Self-Reflection model that generates verbal reinforcement cues. Instead of updating weights, the agent verbally reflects on task feedback and keeps that reflective text in an episodic memory buffer to make better decisions in later trials, reaching 91% pass@1 on HumanEval versus 80% for GPT-4.",
+    "source_ids": [
+      "2303.11366"
+    ],
+    "response": "Based on the provided sources, here are the three models in the Reflexion framework and how the framework improves an agent without updating its weights:\n\n### The Three Models in the Reflexion Framework\n1. **The Actor ($M_a$):** Generates text and actions to interact with the environment [1].\n2. **The Evaluator ($M_e$):** Scores the outputs produced by the Actor [1].\n3. **The Self-Reflection Model ($M_{sr}$):** Generates verbal reinforcement cues and reflective text to assist the Actor in self-improvement [1][2].\n\n### How Reflexion Improves an Agent Without Weight Updates\nInstead of relying on expensive model fine-tuning and extensive training samples like traditional reinforcement learning, Reflexion improves the agent through linguistic feedback [2]. Specifically:\n* The agent verbally reflects on task feedback signals received from the environment [2].\n* It maintains and stores this reflective text in an episodic memory buffer (long-term memory) [1][2].\n* This stored linguistic feedback is then used to induce better decision-making and guide the agent in subsequent trials [1][2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.3 3 Reflexion: reinforcement via verbal reflection\n3 Reflexion: reinforcement via verbal reflection\n\nWe develop a modular formulation for Reflexion, utilizing three distinct models: an Actor, denoted as Ma, which generates text and actions; anEvaluator model, represented by Me, that scores the outputs produced by Ma; and a Self-Reflection model, denoted as Msr, which generates verbal reinforcement cues to assist the Actor in self-improvement. We provide a detailed description of each of these models and subsequently elucidate their collaborative functioning within the Reflexion framework.\n\nActionObs / Reward Trajectory (short-term memory) Experience (long-term memory) Self-reflection (LM) Agent Actor (LM) Environment Evaluator (LM) External feedback Internal feedback Reflective text Algorithm 1 Reinforcement via self-reflection Initialize Actor, Evaluator, Self-Reflection:",
+      "[2] (corpus) Reflexion: Language Agents with Verbal Reinforcement Learning | arXiv:2303.11366 | p.1 Abstract\nLarge language models (LLMs) have been increasingly used to interact with external environments (e.g., games, compilers, APIs) as goal-driven agents. However, it remains challenging for these language agents to quickly and efficiently learn from trial-and-error as traditional reinforcement learning methods require extensive training samples and expensive model fine-tuning. We propose Reflexion, a novel framework to reinforce language agents not by updating weights, but instead through linguistic feedback. Concretely, Reflexion agents verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials. Reflexion is flexible enough to incorporate various types (scalar values or free-form language) and sources (external or internally simulated) of feedback signals, and obtains significant improvements over a baseline agent across diverse tasks (sequential decision-making, coding, language reasoning).",
+      "[3] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.20 2.2 Agent Capability Acquisition\n(4) Self-driven Evolution. This method allows agents to autonomously improve through self-directed learning and feedback mechanisms. LMA3 [97] enables the agent to autonomously set goals for itself, and gradually improve its capability by exploring the environment and receiving feedback from a reward function. Following this mechanism, the agent can acquire knowledge and develop capabilities according to its own preferences. SALLM- MS [98] integrates advanced LLMs like GPT-4 into a multi-agent system, agents can adapt and perform",
+      "[4] (corpus) Generative Agents: Interactive Simulacra of Human Behavior | arXiv:2304.03442 | p.13 6.2 Conditions\nAll conditions were used to independently answer each of the interview questions. We compared the generative agent architecture to ablations that disabled the agents’ access to some or all of its three types of memory in its memory stream—observation, reflection, and planning—and to a human crowdworker-authored condition. There are three ablated architectures: a no observation, no reflection, no planning architecture without access to anything in the memory stream such as observations, plans, and reflections; a no reflection, no planning architecture with access to observations in the memory stream but no access to plans or reflections; and a no reflections architecture with access to observations and plans but without access to reflections. The no observation, no reflection, no planning condition effectively represents the previous state of the art for agents created through large language models [12, 46, 80].",
+      "[5] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.13 2.1.3 Planning Module\n• Model Feedback. Apart from the aforementioned environmental and human feedback, which are external signals, researchers have also investigated the utilization of internal feedback from the agents themselves. This type of feedback is usually generated based on pre-trained models. In specific, [63] proposes a self-refine mechanism. This mechanism consists of three crucial components: output, feedback, and refinement. Firstly, the agent generates an output. Then, it utilizes LLMs to provide feedback on the output and offer guidance on how to refine it. At last, the output is improved by the feedback and refinement. This output-feedbackrefinement process iterates until reaching some desired conditions. SelfCheck [64] allows agents to examine and evaluate their reasoning steps generated at various stages. They can then correct any errors by comparing the outcomes. InterAct [65] uses different language models (such as ChatGPT and InstructGPT) as auxiliary roles, such as checkers and sorters, to help the main language model avoid erroneous and ine fficient actions."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2303.11366",
+      "2303.11366",
+      "2308.11432",
+      "2304.03442",
+      "2308.11432"
+    ],
+    "chunk_ids": [
+      "2303.11366v4::chunk-0014",
+      "2303.11366v4::chunk-0001",
+      "2308.11432v7::chunk-0089",
+      "2304.03442v2::chunk-0084",
+      "2308.11432v7::chunk-0052"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": "gemini",
+    "forced_provider_honored": true,
+    "route_reason": "override: ROUTER_FORCE_PROVIDER=gemini (policy would say: hybrid: simple lookup, context 5.2k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite)",
+    "input_tokens": 1224,
+    "output_tokens": 237,
+    "llm_latency_ms": 1391.2993331905454,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1391.2
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1215.3,
+    "total_ms": 2606.9281669333577,
+    "generated_at": "2026-10-27T00:23:02+00:00"
+  },
+  "q03_toolformer": {
+    "id": "q03_toolformer",
+    "question": "How does Toolformer decide which sampled API calls to keep when building its self-supervised training data?",
+    "reference": "Toolformer samples candidate API calls, executes them, and keeps only the calls for which adding the call and its result reduces the language-modeling loss on the following tokens by at least a filtering threshold, compared with making no call or receiving no result. The kept calls are interleaved with the original text and the model is fine-tuned on it, requiring only a handful of demonstrations per API (calculator, Q&A system, search engine, translation system, calendar).",
+    "source_ids": [
+      "2302.04761"
+    ],
+    "response": "Toolformer decides which sampled API calls to keep by filtering them based on whether they **reduce perplexity on future tokens** [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) Toolformer: Language Models Can Teach Themselves to Use Tools | arXiv:2302.04761 | p.11 8 Conclusion\n8 Conclusion\n\nWe have introduced Toolformer, a language model that learns in a self-supervised way how to use different tools such as search engines, calculators, and translation systems via simple API calls. This is done by finetuning on a large number of sampled API calls that are filtered based on whether they reduce perplexity on future tokens. Toolformer considerably improves zero-shot performance of a 6.7B parameter GPT-J model, enabling it to even outperform a much larger GPT-3 model on a range of different downstream tasks.\n\nA API Details",
+      "[2] (corpus) Toolformer: Language Models Can Teach Themselves to Use Tools | arXiv:2302.04761 | p.11 7 Limitations\nWhile our approach enables LMs to learn how to use a variety of tools in a self-supervised way, there are some clear limitations to what can be achieved with our method in its current form. One such limitation is the inability of Toolformer to use tools in a chain (i.e., using the output of one tool as an input for another tool). This is due to the fact that API calls for each tool are generated independently; as a consequence, there are no examples of chained tool use in the finetuning dataset. Our current approach also does not allow the LM to use a tool in an interactive way – especially for tools such as search engines, that could potentially return hundreds of different results, enabling a LM to browse through these results or to refine its search query in a similar spirit to Nakano et al. (2021) can be crucial for certain applications.",
+      "[3] (corpus) A Survey on Large Language Model based Autonomous Agents | arXiv:2308.11432 | p.15 2.1.4 Action Module\nLei Wang et al. A Survey on Large Language Model based Autonomous Agents 15 proposes to automatically generate queries to extract relevant content from external web pages when responding to user request. TPTU [68] explores the potential of LLMs to address intricate tasks through strategic task planning and API-based tools. Gorilla [69] introduces a fine-tuned LLM capable of generating precise input arguments for API calls, effectively mitigating hallucination issues during external API usage. ToolFormer [15] employs selfsupervised learning to determine when and how to invoke external tools, using demonstrations of tool APIs for training. API-Bank [70] offers a comprehensive benchmark with a diverse collection of API tools to systematically evaluate tool-augmented LLMs, alongside robust training datasets designed to enhance their integration capabilities. ToolL- LaMA [14] proposes a tool-use framework encompassing data collection, training, and evaluation, with the resulting fine-tuned model excelling across a wide array of APIs.",
+      "[4] (corpus) Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection | arXiv:2310.11511 | p.5 3.2.1 TRAINING THE CRITIC MODEL\nNo Retrieval No Retrieval Retriever Figure 2: SELF -RAG training examples. The left example does not require retrieval while the right one requires retrieval; thus, passages are inserted. More examples are in Appendix Table 4. used to generate such feedback (Liu et al., 2023b). However, depending on such proprietary LMs can raise API costs and diminish reproducibility (Chen et al., 2023). We create supervised data by prompting GPT-4 to generate reflection tokens and then distill their knowledge into an in-houseC. For each group of reflection tokens, we randomly sample instances from the original training data: {X sample, Ysample} ∼ {X, Y}. As different reflection token groups have their own definitions and input, as shown in Table 1, we use different instruction prompts for them. Here, we use Retrieve as an example.",
+      "[5] (corpus) Tool Learning with Foundation Models | arXiv:2304.08354 | p.18 3.3 Training Models for Improved Tool Learning\nSelf-supervised Learning. Despite reducing the heavy requirements on human behavior annotation, semisupervised learning still requires a seed labeled dataset to attain the pseudo labels. Besides, the biases in the seed dataset may also be amplified during training, leading to poor generalization performance. To this end, researchers recently show that with a few demonstrations, foundation models can teach themselves how to utilize a tool in a self-supervised manner (Parisi et al., 2022; Schick et al., 2023). For instance, Toolformer (Schick et al., 2023) leverages the in-context learning ability of foundation models to iteratively bootstrap tool-use examples based on a handful of human-written examples. These auto-generated examples are further filtered to reduce noise. The final tool-use dataset contains sufficient supervision, significantly improving GPT-J’s (Wang & Komatsuzaki, 2021) tool-use performance, highlighting the potential of selfsupervised learning for enhancing tool-use capabilities.\n\n3.3.2 Learning from Feedback"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2302.04761",
+      "2302.04761",
+      "2308.11432",
+      "2310.11511",
+      "2304.08354"
+    ],
+    "chunk_ids": [
+      "2302.04761v1::chunk-0056",
+      "2302.04761v1::chunk-0054",
+      "2308.11432v7::chunk-0062",
+      "2310.11511v1::chunk-0024",
+      "2304.08354v3::chunk-0101"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": "gemini",
+    "forced_provider_honored": true,
+    "route_reason": "override: ROUTER_FORCE_PROVIDER=gemini (policy would say: hybrid: simple lookup, context 5.1k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite)",
+    "input_tokens": 1303,
+    "output_tokens": 27,
+    "llm_latency_ms": 848.3855419326574,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 848.3
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1329.0,
+    "total_ms": 2177.7828340418637,
+    "generated_at": "2026-10-27T00:23:10+00:00"
+  },
+  "q04_autogen": {
+    "id": "q04_autogen",
+    "question": "What are the built-in agent types in AutoGen and what role does each play in a multi-agent conversation?",
+    "reference": "AutoGen's highest-level abstraction is the ConversableAgent, which can use LLMs, humans and tools. AssistantAgent and UserProxyAgent are two pre-configured subclasses: the assistant acts as an LLM-backed AI assistant, while the user proxy solicits human input or executes code and function calls; a GroupChatManager coordinates group chats.",
+    "source_ids": [
+      "2308.08155"
+    ],
+    "response": "Based on the provided sources, AutoGen uses a generic design for customizable and conversable agents rather than being strictly restricted to a fixed list of rigid agent types [1]. Key aspects of its agent structure and roles include:\n\n* **ConversableAgent Class:** This is the highest-level agent abstraction in AutoGen, which by default can leverage a combination of LLMs, human inputs, and tools [2]. Every agent is conversable, meaning they can receive, react to, and respond to messages to hold multiple turns of conversation autonomously or with human involvement [1].\n* **User Proxy Agent:** A built-in agent type that allows for configurable levels and patterns of human involvement (such as the frequency and conditions for requesting human input, including the option to skip) [2]. It is also tool-backed, meaning it has the capability to execute tools via code execution or function execution (such as executing code suggested by LLMs or making function calls) [2].\n* **Customized Roles:** Developers can create and configure agents with different specialized roles—such as agents dedicated to writing code, executing code, incorporating human feedback, or validating outputs—by selecting and configuring subsets of built-in capabilities and back-end types [1][2].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.2 1 Introduction\nWhile there is contemporaneous exploration of multi-agent approaches, 3 we present AutoGen, a generalized multi-agent conversation framework (Figure 1), based on the following new concepts. 1 Customizable and conversable agents. AutoGen uses a generic design of agents that can leverage LLMs, human inputs, tools, or a combination of them. The result is that developers can easily and quickly create agents with different roles (e.g., agents to write code, execute code, wire in human feedback, validate outputs, etc.) by selecting and configuring a subset of built-in capabilities. The agent’s backend can also be readily extended to allow more custom behaviors. To make these agents suitable for multi-agent conversation, every agent is made conversable – they can receive, react, and respond to messages. When configured properly, an agent can hold multiple turns of conversations with other agents autonomously or solicit human inputs at certain rounds, enabling human agency and automation.",
+      "[2] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.3 2.1 Conversable Agents\nThe default user proxy agent allows configurable human involvement levels and patterns, e.g., frequency and conditions for requesting human input including the option for humans to skip providing input. 3) Tools. Tool-backed agents have the capability to execute tools via code execution or function execution. For example, the default user proxy agent in AutoGen is able to execute code suggested by LLMs, or make LLM-suggested function calls. Agent customization and cooperation. Based on application-specific needs, each agent can be configured to have a mix of basic back-end types to display complex behavior in multi-agent conversations. AutoGen allows easy creation of agents with specialized capabilities and roles by reusing or extending the built-in agents. The yellow-shaded area of Figure 2 provides a sketch of the built-in agents in AutoGen. The ConversableAgent class is the highest-level agent abstraction and, by default, can use LLMs, humans, and tools.",
+      "[3] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5.1 Multi-Agents Framework\nAutoGen is a versatile framework that allows for the creation of applications using language models. It is distinctive for its high level of customization, enabling developers to program agents using both natural language and code to define how these agents interact. This versatility enables its use in diverse fields, from technical areas such as coding and mathematics to consumer-focused sectors like entertainment. More recently, [Chen et al. , 2023c; Chen et al. , 2023a ] introduce frameworks for dynamic multi-agent collaboration, while [Zhou et al. , 2023a; Li et al. , 2023h; Xie et al., 2023 ] present platforms and libraries for building autonomous agents, emphasizing their adaptability in tasksolving and social simulations.\n\n5.2 Datasets and Benchmarks",
+      "[4] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5 Implementation Tools and Resources\n5 Implementation Tools and Resources\n\n5.1 Multi-Agents Framework\n\nWe provide a detailed introduction to three open-source multi-agent frameworks: MetaGPT [Hong et al. , 2023 ], CAMEL [Li et al., 2023b], and Autogen [Wu et al., 2023a]. They are all frameworks that utilize language models for complex task-solving with a focus on multi-agent collaboration, but they differ in their approaches and applications. MetaGPT is designed to embed human workflow processes into the operation of language model agents, thereby reducing the hallucination problem that often arises in complex tasks. It does this by encoding Standard Operating Procedures into the system and using an assembly line approach to assign specific roles to different agents.",
+      "[5] (corpus) The Rise and Potential of Large Language Model Based Agents: A Survey | arXiv:2309.07864 | p.30 4.2.1 Cooperative Interaction for Complementarity\nTalebirad et al. [409] are among the first to systematically introduce a comprehensive LLM-based multi-agent collaboration framework. This paradigm aims to harness the strengths of each individual agent and foster cooperative relationships among them. Many applications of multi-agent cooperation have successfully been built upon this foundation [27; 406; 407; 448]. Furthermore, AgentVerse [410] constructs a versatile, multi-task-tested framework for group agents cooperation. It can assemble a team of agents that dynamically adapt according to the task’s complexity. To promote more efficient collaboration, researchers hope that agents can learn from successful human cooperation examples [109]. MetaGPT [405] draws inspiration from the classic waterfall model in software development, standardizing agents’ inputs/outputs as engineering documents. By encoding advanced human process management experience into agent prompts, collaboration among multiple agents becomes more structured."
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2308.08155",
+      "2308.08155",
+      "2402.01680",
+      "2402.01680",
+      "2309.07864"
+    ],
+    "chunk_ids": [
+      "2308.08155v2::chunk-0007",
+      "2308.08155v2::chunk-0013",
+      "2402.01680v2::chunk-0065",
+      "2402.01680v2::chunk-0063",
+      "2309.07864v3::chunk-0167"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": "gemini",
+    "forced_provider_honored": true,
+    "route_reason": "override: ROUTER_FORCE_PROVIDER=gemini (policy would say: hybrid: simple lookup, context 5.3k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite)",
+    "input_tokens": 1338,
+    "output_tokens": 254,
+    "llm_latency_ms": 1326.004333095625,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1325.9
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1262.1,
+    "total_ms": 2588.4416250046343,
+    "generated_at": "2026-10-27T00:23:19+00:00"
+  },
+  "q05_metagpt": {
+    "id": "q05_metagpt",
+    "question": "How does MetaGPT use Standardized Operating Procedures and roles to reduce errors in multi-agent software development?",
+    "reference": "MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences so agents with human-like domain expertise can verify intermediate results, which counters the cascading hallucinations of naively chained LLMs. It uses an assembly-line paradigm with five roles in a simulated software company: Product Manager, Architect, Project Manager, Engineer and QA Engineer, who exchange structured outputs such as requirement documents and design artifacts.",
+    "source_ids": [
+      "2308.00352"
+    ],
+    "response": "MetaGPT reduces errors and logic inconsistencies (such as cascading hallucinations) in multi-agent software development by combining Standardized Operating Procedures (SOPs) with specialized agent roles in the following ways:\n\n* **Encoding SOPs into Prompt Sequences:** MetaGPT encodes Standardized Operating Procedures into prompt sequences and static instructions predefined by human experts [1][2]. This streamlines workflows and allows agents to adhere to structured guidance rather than naively chaining LLMs [1][2].\n* **Role Specialization and Assembly Line Paradigm:** The framework utilizes an assembly line paradigm to assign diverse, human-like domain expertise and specific roles to various LLM-driven agents [1][2]. This breaks down complex software tasks into manageable subtasks handled collaboratively [1].\n* **Verification of Intermediate Results:** By operating within these structured workflows and roles, agents are able to verify intermediate results, leading to more coherent and higher-quality solutions compared to traditional chat-based multi-agent systems [1].",
+    "error": null,
+    "retrieved_contexts": [
+      "[1] (corpus) MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework | arXiv:2308.00352 | p.1 Abstract\nRemarkable progress has been made on automated problem solving through societies of agents based on large language models (LLMs). Existing LLM-based multi-agent systems can already solve simple dialogue tasks. Solutions to more complex tasks, however, are complicated through logic inconsistencies due to cascading hallucinations caused by naively chaining LLMs. Here we introduce MetaGPT, an innovative meta-programming framework incorporating efficient human workflows into LLM-based multi-agent collaborations. MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences for more streamlined workflows, thus allowing agents with human-like domain expertise to verify intermediate results and reduce errors. MetaGPT utilizes an assembly line paradigm to assign diverse roles to various agents, efficiently breaking down complex tasks into subtasks involving many agents working together. On collaborative software engineering benchmarks, MetaGPT generates more coherent solutions than previous chat-based multi-agent systems.",
+      "[2] (corpus) ChatDev: Communicative Agents for Software Development | arXiv:2307.07924 | p.5 4 Evaluation\n4 Evaluation\n\nBaselines We chose some representative LLMbased software development methods as our baselines. GPT-Engineer (Osika, 2023) is a fundamental single-agent approach in LLM-driven software agents with a precise understanding of task requirements and the application of one-step reasoning, which highlights its efficiency in generating detailed software solutions at the repository level. MetaGPT (Hong et al., 2023) is an advanced framework that allocates specific roles to various LLMdriven software agents and incorporates standardized operating procedures to enable multi-agent participation. In each step agents with specific roles generate solutions by adhering to static instructions predefined by human experts.",
+      "[3] (corpus) Large Language Model based Multi-Agents: A Survey of Progress and Challenges | arXiv:2402.01680 | p.10 5 Implementation Tools and Resources\n5 Implementation Tools and Resources\n\n5.1 Multi-Agents Framework\n\nWe provide a detailed introduction to three open-source multi-agent frameworks: MetaGPT [Hong et al. , 2023 ], CAMEL [Li et al., 2023b], and Autogen [Wu et al., 2023a]. They are all frameworks that utilize language models for complex task-solving with a focus on multi-agent collaboration, but they differ in their approaches and applications. MetaGPT is designed to embed human workflow processes into the operation of language model agents, thereby reducing the hallucination problem that often arises in complex tasks. It does this by encoding Standard Operating Procedures into the system and using an assembly line approach to assign specific roles to different agents.",
+      "[4] (corpus) AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation | arXiv:2308.08155 | p.15 A Related Work\n• MetaGPT: MetaGPT (Hong et al., 2023) is a specialized LLM application based on a multi-agent conversation framework for automatic software development. They assign different roles to GPTs to collaboratively develop software. They differ from AutoGen by being specialized solutions to a certain scenario, while AutoGen is a generic infrastructure to facilitate building applications for various scenarios.",
+      "[5] (corpus) MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework | arXiv:2308.00352 | p.4 3 METAGPT: A META-PROGRAMMING FRAMEWORK\n3 METAGPT: A META-PROGRAMMING FRAMEWORK\n\nMetaGPT is a meta-programming framework for LLM-based multi-agent systems. Sec. 3.1 provides an explanation of role specialization, workflow and structured communication in this framework, and illustrates how to organize a multi-agent system within the context of SOPs. Sec. 3.2 presents a communication protocol that enhances role communication efficiency. We also implement structured communication interfaces and an effective publish-subscribe mechanism. These methods enable agents to obtain directional information from other roles and public information from the environment. Finally, we introduce executable feedback—a self-correction mechanism for further enhancing code generation quality during run-time in Sec. 3.3.\n\n3.1 AGENTS IN STANDARD OPERATING PROCEDURES"
+    ],
+    "contexts_source": "prompt_blocks",
+    "retrieved_source_ids": [
+      "2308.00352",
+      "2307.07924",
+      "2402.01680",
+      "2308.08155",
+      "2308.00352"
+    ],
+    "chunk_ids": [
+      "2308.00352v7::chunk-0001",
+      "2307.07924v5::chunk-0024",
+      "2402.01680v2::chunk-0063",
+      "2308.08155v2::chunk-0058",
+      "2308.00352v7::chunk-0016"
+    ],
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "forced_provider": "gemini",
+    "forced_provider_honored": true,
+    "route_reason": "override: ROUTER_FORCE_PROVIDER=gemini (policy would say: hybrid: simple lookup, context 4.5k chars <= 20k threshold -> fast, cheap Gemini Flash-Lite)",
+    "input_tokens": 1113,
+    "output_tokens": 198,
+    "llm_latency_ms": 1158.0399579834193,
+    "attempts": [
+      {
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "served_model": null,
+        "ok": true,
+        "error": null,
+        "latency_ms": 1158.0
+      }
+    ],
+    "fallbacks": 0,
+    "retrieval_ms": 1293.3,
+    "total_ms": 2451.6486660577357,
+    "generated_at": "2026-10-27T00:23:27+00:00"
+  }
+}
